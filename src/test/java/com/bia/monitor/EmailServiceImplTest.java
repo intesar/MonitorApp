@@ -4,6 +4,8 @@
  */
 package com.bia.monitor;
 
+import com.bia.monitor.email.EmailServiceImpl;
+import com.bia.monitor.email.EmailService;
 import org.junit.*;
 import static org.junit.Assert.*;
 
