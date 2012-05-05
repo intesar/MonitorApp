@@ -1,14 +1,80 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=MacRoman">
+
+<!DOCTYPE html> 
+<html>     
+    <head> 
+        <title>Page Title</title> 
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+        <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+        
+        <style type="text/css">
+            .left{
+                width: 1%;
+                float: left;
+                text-align: right;
+            }
+            
+            .right{
+                width: 80%;
+                margin-left: 1%;
+                float: left;
+            }
+            p{
+                text-align: center;
+                margin-top: 3%;
+            }
+            btx{
+                margin-top: 300%;
+            }
+            
+        </style>
     </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+
+
+    <body> 
+        <br/>
+        <div data-role="page">
+
+            <!-- /header -->
+            <div data-role="header">
+                    <h1>Site Footprints</h1>
+            </div>
+
+            <!-- /content -->
+            <form name="trackSite">
+            <div data-role="fieldcontain">
+                <p>
+                    <b>Site Footprints</b> will alert you when your site is down.  Enter your email address and the URL 
+                    and we'll do the rest.  
+                </p>
+                <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                    <label for="email" class="ui-input-text left">Email:</label>
+                    <input type="email" name="email" id="email" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset right">
+                </div>
+                
+                <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                    <label for="url" class="ui-input-text left">URL:</label>
+                    <input type="url" name="url" id="url" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset right">
+		</div>
+                <br><br>    
+                
+                
+                <!--div class="btx">
+                    <input type="reset" class="btx" data-mini="true" data-inline="true" value="Reset!">
+                    <a href="index.html" class="btx" data-role="button" data-mini="true" data-inline="true" data-theme="a">Track</a>
+                </div-->
+                
+            </div>
+            <div class="btx">                    
+                <input type="reset" data-inline="true" data-mini="true" value="Reset">
+                <a href="index.html" data-role="button"  data-inline="true" data-mini="true">Track</a>
+            </div>
+            </form>
+
+        </div><!-- /page -->
+
+        </body>
 </html>
