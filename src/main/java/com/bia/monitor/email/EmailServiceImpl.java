@@ -13,9 +13,15 @@ import org.apache.log4j.Logger;
 
 public class EmailServiceImpl implements EmailService {
 
+    private static final EmailService instance = new EmailServiceImpl();
+    private EmailServiceImpl(){}
+    
     protected Session session;
     protected InternetAddress[] bcc;
 
+    public static EmailService getInstance() {
+        return instance;
+    }
     @Override
     public void sendEmail(String toAddress, String subject, String body) {
         String[] to = {toAddress};

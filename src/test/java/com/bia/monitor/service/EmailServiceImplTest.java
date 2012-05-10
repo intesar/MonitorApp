@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.bia.monitor;
+package com.bia.monitor.service;
 
 import com.bia.monitor.email.EmailServiceImpl;
 import com.bia.monitor.email.EmailService;
@@ -43,7 +43,7 @@ public class EmailServiceImplTest {
         String toAddress = "intesar@ymail.com";
         String subject = "Monitor App Test!";
         String body = "Test!";
-        EmailService instance = new EmailServiceImpl();
+        EmailService instance = EmailServiceImpl.getInstance();
         try {
             instance.sendEmail(toAddress, subject, body);
         } catch (RuntimeException ex) {
