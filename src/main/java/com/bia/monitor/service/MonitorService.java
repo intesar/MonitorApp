@@ -9,6 +9,8 @@ import com.bia.monitor.email.EmailServiceImpl;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -16,20 +18,17 @@ import java.util.concurrent.ConcurrentSkipListSet;
  */
 public class MonitorService {
 
+    protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(MonitorService.class);
     private Set<Job> list;
     private EmailService emailService;
-    protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(MonitorService.class);
     private static final MonitorService instance = new MonitorService();
+    private ScheduledThreadPoolExecutor executor;
 
     private MonitorService() {
         list = new ConcurrentSkipListSet<Job>();
         emailService = EmailServiceImpl.getInstance();
+        executor = new ScheduledThreadPoolExecutor(10);
         setUpExecutor();
-    }
-
-    private void setUpExecutor() {
-        JobMonitor jobMonitor = new JobMonitor();
-        jobMonitor.setRepeatable(new MonitorRunnalbe(jobMonitor, list));
     }
 
     public String add(String url, String email) {
@@ -92,7 +91,10 @@ public class MonitorService {
         }
         for (Job j : list) {
             if (logger.isTraceEnabled()) {
-                logger.trace(j);
+                logger.trace(j.getId() );
+                logger.trace(id);
+                logger.trace(" where == ? ");
+                
             }
             if (j.getId().equals(id)) {
                 list.remove(j);
@@ -109,4 +111,26 @@ public class MonitorService {
     public static MonitorService getInstance() {
         return instance;
     }
+
+    // veify method implementation begin
+    private void setUpExecutor() {
+        executor.scheduleAtFixedRate(new VerifyMethod(), 0, 1, TimeUnit.MINUTES);
+        //JobMonitor jobMonitor = new JobMonitor();
+        //jobMonitor.setRepeatable(new MonitorRunnalbe(jobMonitor, list));
+    }
+
+    // this object will executed every 5 mins
+    private class VerifyMethod implements Runnable {
+
+        public void run() {
+            if (logger.isTraceEnabled()) {
+                logger.trace(" started timer!");
+            }
+            for (Job job : list) {
+                Runnable job_ = new JobCheck(job);
+                executor.schedule(job_, 10, TimeUnit.MILLISECONDS);
+            }
+        }
+    }
+    // veify method end
 }

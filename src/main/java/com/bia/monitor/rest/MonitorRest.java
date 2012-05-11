@@ -34,8 +34,8 @@ public class MonitorRest {
     }
 
     // @DELETE // users will be clicking on links from email
-    // curl -i -X GET http://localhost:8080/rest/monitor/delete/id=34343
-    //http://localhost:8080/rest/monitor/delete/id=123
+    // curl -i -X GET http://localhost:8080/rest/monitor/delete/34343
+    //http://localhost:8080/rest/monitor/delete/123
     @GET
     @Path("/delete/{id}")
     @Produces({"application/json"})

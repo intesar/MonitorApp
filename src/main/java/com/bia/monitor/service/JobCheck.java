@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 class JobCheck implements Runnable {
 
     private Job job;
-    protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(MonitorRunnalbe.class);
+    protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(JobCheck.class);
 
     JobCheck(Job job) {
         this.job = job;
