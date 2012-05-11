@@ -59,7 +59,7 @@ public class MonitorService {
         list.add(job);
 
         StringBuilder body = new StringBuilder();
-        body.append("Your submitted data! <br/>").append("<p>Url : ").append(url).append("<br/>").append("Email : ").append(email).append("<br/><br/>").append(" <a href=\"http://localhost:8080/rest/monitor/delete/id=").append(job.getId()).append("\" > Click here to remove monitor</a>  ");
+        body.append("Your submitted data! <br/>").append("<p>Url : ").append(url).append("<br/>").append("Email : ").append(email).append("<br/><br/>").append(" <a href=\"http://localhost:8080/rest/monitor/delete/").append(job.getId()).append("\" > Click here to remove monitor</a>  ");
         emailService.sendEmail(email, "Congratulations we are monitoring your site!", body.toString());
 
         return job.getId();
