@@ -27,7 +27,7 @@
 
 	
     <logger name="com.bia.monitor">
-        <level value="trace" />
+        <level value="debug" />
     </logger>
 
 	<!-- JSF Phase listener (debug purpose) -->
