@@ -10,3 +10,127 @@
 [Monitor] - 2012-05-04 01:25:28,536 -  - url : http://google.com, email : intesar@ymail.com
 [Monitor] - 2012-05-04 01:25:42,804 -  - url : http://google.com, email : intesar@ymail
 [Monitor] - 2012-05-04 01:27:17,805 -  - url : http://google.com, email : null
+[Monitor] - 2012-05-10 00:37:25,129 -  - url : http://www.zytoon.me, email : intesar@ymail.com
+[Monitor] - 2012-05-10 00:39:54,745 -  - url : http://www.zytoon.me, email : intesar@ymail.com
+[Monitor] - 2012-05-10 00:39:54,748 -  - http://www.zytoon.me, intesar@ymail.com is added to the queue!
+[Monitor] - 2012-05-10 00:43:31,973 -  -  started timer!
+[Monitor] - 2012-05-10 00:43:31,980 -  - url : http://www.zytoon.me, email : intesar@ymail.com
+[Monitor] - 2012-05-10 00:43:31,981 -  - http://www.zytoon.me, intesar@ymail.com is added to the queue!
+[Monitor] - 2012-05-10 00:44:31,971 -  -  started timer!
+[Monitor] - 2012-05-10 00:44:31,996 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-10 00:44:33,131 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-10 00:45:31,972 -  -  started timer!
+[Monitor] - 2012-05-10 00:45:31,984 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-10 00:45:32,201 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-10 00:46:31,440 -  - url : http://www.bizintelapps.com, email : intesar@ymail.com
+[Monitor] - 2012-05-10 00:46:31,440 -  - http://www.bizintelapps.com, intesar@ymail.com is added to the queue!
+[Monitor] - 2012-05-10 00:46:31,972 -  -  started timer!
+[Monitor] - 2012-05-10 00:46:31,983 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:46:31,983 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-10 00:46:32,525 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-10 00:46:33,304 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:47:31,971 -  -  started timer!
+[Monitor] - 2012-05-10 00:47:31,982 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:47:31,982 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-10 00:47:32,190 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-10 00:47:32,760 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:48:31,971 -  -  started timer!
+[Monitor] - 2012-05-10 00:48:31,982 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:48:31,983 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-10 00:48:32,580 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-10 00:48:33,169 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:48:35,443 -  - delete id : id=922356ef-313a-4d0a-8d15-137b8de7efa4
+[Monitor] - 2012-05-10 00:48:35,443 -  - id=922356ef-313a-4d0a-8d15-137b8de7efa4 trying to remove!
+[Monitor] - 2012-05-10 00:49:04,416 -  - delete id : id=9d5bdd85-e17a-4c1d-8d40-1b5b4aeff9a8
+[Monitor] - 2012-05-10 00:49:04,416 -  - id=9d5bdd85-e17a-4c1d-8d40-1b5b4aeff9a8 trying to remove!
+[Monitor] - 2012-05-10 00:49:13,644 -  - delete id : id=ca1e533a-f3ae-4a14-8ff6-a513c620ef83
+[Monitor] - 2012-05-10 00:49:13,644 -  - id=ca1e533a-f3ae-4a14-8ff6-a513c620ef83 trying to remove!
+[Monitor] - 2012-05-10 00:49:31,972 -  -  started timer!
+[Monitor] - 2012-05-10 00:49:31,983 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:49:31,985 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-10 00:49:32,509 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-10 00:49:33,073 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:50:33,865 -  -  started timer!
+[Monitor] - 2012-05-10 00:50:33,891 -  - url : http://www.bizintelapps.com, email : intesar@ymail.com
+[Monitor] - 2012-05-10 00:50:33,893 -  - http://www.bizintelapps.com, intesar@ymail.com is added to the queue!
+[Monitor] - 2012-05-10 00:50:49,555 -  - delete id : id=6481c83a-6ba1-4bcf-a31f-cf1afdfd4779
+[Monitor] - 2012-05-10 00:50:49,555 -  - id=6481c83a-6ba1-4bcf-a31f-cf1afdfd4779 trying to remove!
+[Monitor] - 2012-05-10 00:51:33,862 -  -  started timer!
+[Monitor] - 2012-05-10 00:51:33,879 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:51:34,932 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:52:20,514 -  -  started timer!
+[Monitor] - 2012-05-10 00:52:20,526 -  - url : http://www.bizintelapps.com, email : intesar@ymail.com
+[Monitor] - 2012-05-10 00:52:24,957 -  - http://www.bizintelapps.com, intesar@ymail.com, 5efaae17-aa3d-431e-8ba9-8aeaf8444408 is added to the queue!
+[Monitor] - 2012-05-10 00:52:43,941 -  - delete id : id=5efaae17-aa3d-431e-8ba9-8aeaf8444408
+[Monitor] - 2012-05-10 00:52:43,941 -  - id=5efaae17-aa3d-431e-8ba9-8aeaf8444408 trying to remove!
+[Monitor] - 2012-05-10 00:53:20,512 -  -  started timer!
+[Monitor] - 2012-05-10 00:53:20,524 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:53:21,633 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:54:20,512 -  -  started timer!
+[Monitor] - 2012-05-10 00:54:20,523 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:54:21,332 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:55:20,513 -  -  started timer!
+[Monitor] - 2012-05-10 00:55:20,524 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:55:21,031 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:56:20,512 -  -  started timer!
+[Monitor] - 2012-05-10 00:56:20,523 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:56:21,243 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:57:20,512 -  -  started timer!
+[Monitor] - 2012-05-10 00:57:20,523 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:57:21,353 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:58:20,512 -  -  started timer!
+[Monitor] - 2012-05-10 00:58:20,524 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:58:21,060 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:58:36,747 -  -  started timer!
+[Monitor] - 2012-05-10 00:58:36,756 -  - url : http://www.bizintelapps.com, email : intesar@ymail.com
+[Monitor] - 2012-05-10 00:58:40,443 -  - http://www.bizintelapps.com, intesar@ymail.com, 4b2e3913-f932-42a8-9a17-bf23b2ba177a is added to the queue!
+[Monitor] - 2012-05-10 00:58:49,512 -  - delete id : id=4b2e3913-f932-42a8-9a17-bf23b2ba177a
+[Monitor] - 2012-05-10 00:58:49,513 -  - id=4b2e3913-f932-42a8-9a17-bf23b2ba177a trying to remove!
+[Monitor] - 2012-05-10 00:59:36,746 -  -  started timer!
+[Monitor] - 2012-05-10 00:59:36,758 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 00:59:37,854 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:00:02,382 -  -  started timer!
+[Monitor] - 2012-05-10 01:00:02,393 -  - url : http://www.bizintelapps.com, email : intesar@ymail.com
+[Monitor] - 2012-05-10 01:00:05,955 -  - http://www.bizintelapps.com, intesar@ymail.com, 4995cf1a-c622-4713-97a7-3086cb9f463f is added to the queue!
+[Monitor] - 2012-05-10 01:00:13,297 -  - delete id : id=4995cf1a-c622-4713-97a7-3086cb9f463f
+[Monitor] - 2012-05-10 01:00:13,297 -  - id=4995cf1a-c622-4713-97a7-3086cb9f463f trying to remove!
+[Monitor] - 2012-05-10 01:00:13,297 -  - Job{id=4995cf1a-c622-4713-97a7-3086cb9f463f, url=http://www.bizintelapps.com, email=intesar@ymail.com, lastUp=false, downSince=null}
+[Monitor] - 2012-05-10 01:01:02,382 -  -  started timer!
+[Monitor] - 2012-05-10 01:01:02,396 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:01:03,271 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:01:19,511 -  -  started timer!
+[Monitor] - 2012-05-10 01:01:19,518 -  - url : http://www.bizintelapps.com, email : intesar@ymail.com
+[Monitor] - 2012-05-10 01:01:23,059 -  - http://www.bizintelapps.com, intesar@ymail.com, 6a7e6d34-5020-4f4e-8b5d-f77a6ab075b1 is added to the queue!
+[Monitor] - 2012-05-10 01:01:33,274 -  - delete id : id=6a7e6d34-5020-4f4e-8b5d-f77a6ab075b1
+[Monitor] - 2012-05-10 01:01:33,274 -  - id=6a7e6d34-5020-4f4e-8b5d-f77a6ab075b1 trying to remove!
+[Monitor] - 2012-05-10 01:01:33,274 -  - Job{id=6a7e6d34-5020-4f4e-8b5d-f77a6ab075b1, url=http://www.bizintelapps.com, email=intesar@ymail.com, lastUp=false, downSince=null}
+[Monitor] - 2012-05-10 01:02:19,510 -  -  started timer!
+[Monitor] - 2012-05-10 01:02:19,522 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:02:20,978 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:03:19,511 -  -  started timer!
+[Monitor] - 2012-05-10 01:03:19,522 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:03:20,268 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:04:19,510 -  -  started timer!
+[Monitor] - 2012-05-10 01:04:19,522 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:04:20,684 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:05:19,510 -  -  started timer!
+[Monitor] - 2012-05-10 01:05:19,521 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:05:19,975 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:06:19,510 -  -  started timer!
+[Monitor] - 2012-05-10 01:06:19,523 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:06:20,596 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:07:19,511 -  -  started timer!
+[Monitor] - 2012-05-10 01:07:19,523 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:07:20,295 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:08:19,510 -  -  started timer!
+[Monitor] - 2012-05-10 01:08:19,522 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:08:20,302 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:09:19,510 -  -  started timer!
+[Monitor] - 2012-05-10 01:09:19,522 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:09:20,316 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:10:19,510 -  -  started timer!
+[Monitor] - 2012-05-10 01:10:19,521 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:10:20,419 -  -  ping successful http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:11:19,510 -  -  started timer!
+[Monitor] - 2012-05-10 01:11:19,521 -  -  pinging http://www.bizintelapps.com
+[Monitor] - 2012-05-10 01:11:20,183 -  -  ping successful http://www.bizintelapps.com
