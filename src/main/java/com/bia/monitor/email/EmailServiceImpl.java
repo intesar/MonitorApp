@@ -5,6 +5,8 @@ package com.bia.monitor.email;
  * @author intesar
  */
 import java.util.Properties;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import javax.mail.*;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
@@ -14,21 +16,43 @@ import org.apache.log4j.Logger;
 public class EmailServiceImpl implements EmailService {
 
     private static final EmailService instance = new EmailServiceImpl();
-    private EmailServiceImpl(){}
-    
+    private ScheduledThreadPoolExecutor executor;
+
+    private EmailServiceImpl() {
+        executor = new ScheduledThreadPoolExecutor(2);
+    }
     protected Session session;
     protected InternetAddress[] bcc;
 
     public static EmailService getInstance() {
         return instance;
     }
+
     @Override
     public void sendEmail(String toAddress, String subject, String body) {
         String[] to = {toAddress};
-        sendSSMessage(to, subject, body);
+        Runnable emailServiceAsync = new EmailServiceAsync(to, subject, body);
+        this.executor.schedule(emailServiceAsync, 1, TimeUnit.MILLISECONDS);
+        
     }
 
-    
+    private class EmailServiceAsync implements Runnable {
+
+        String recipients[];
+        String subject;
+        String message;
+
+        EmailServiceAsync(String recipients[], String subject,
+                String message) {
+            this.recipients = recipients;
+            this.subject = subject;
+            this.message = message;
+        }
+
+        public void run() {
+            EmailServiceImpl.this.sendSSMessage(recipients, subject, message);
+        }
+    }
 
     private Session createSession() {
 
@@ -70,7 +94,7 @@ public class EmailServiceImpl implements EmailService {
     }
 
     /**
-     * 
+     *
      * @param recipients
      * @param subject
      * @param message
@@ -88,13 +112,11 @@ public class EmailServiceImpl implements EmailService {
             InternetAddress[] addressTo = new InternetAddress[recipients.length];
             for (int i = 0; i < recipients.length; i++) {
                 if (recipients[i] != null && recipients[i].length() > 0) {
-
                     addressTo[i] = new InternetAddress(recipients[i]);
-
                 }
             }
             send(addressTo, subject, message);
-            
+
         } catch (Exception ex) {
             logger.warn(ex.getMessage(), ex);
             throw new RuntimeException("Error sending email, please check to and from emails are correct!");
