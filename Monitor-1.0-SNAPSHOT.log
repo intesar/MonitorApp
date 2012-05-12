@@ -1287,3 +1287,121 @@ java.lang.NullPointerException
 [Monitor] - 2012-05-12 02:06:33,227 -  - 08ff0aad-15a5-4d54-a4de-f8c7db8abcbd
 [Monitor] - 2012-05-12 02:06:33,228 -  - error.gif
 [Monitor] - 2012-05-12 02:06:33,228 -  -  where == ? 
+[Monitor] - 2012-05-12 13:22:47,941 -  - url : google.com, email : mdshannan@gmail.com
+[Monitor] - 2012-05-12 13:22:47,942 -  -  started timer!
+[Monitor] - 2012-05-12 13:22:47,955 -  - http://google.com, mdshannan@gmail.com, f3a90ff8-b416-4406-9ba6-9c5ebd2f606b is added to the queue!
+[Monitor] - 2012-05-12 13:22:47,971 -  -  pinging http://google.com
+[Monitor] - 2012-05-12 13:22:48,325 -  -  ping successful http://google.com
+[Monitor] - 2012-05-12 13:23:47,937 -  -  started timer!
+[Monitor] - 2012-05-12 13:23:47,949 -  -  pinging http://google.com
+[Monitor] - 2012-05-12 13:23:48,082 -  -  ping successful http://google.com
+[Monitor] - 2012-05-12 13:23:54,502 -  - url : adkfjasdlfja.com, email : mdshannan@gmail.com
+[Monitor] - 2012-05-12 13:23:54,506 -  - http://adkfjasdlfja.com, mdshannan@gmail.com, 4d43959f-7e04-4c98-bf46-2d35a3579811 is added to the queue!
+[Monitor] - 2012-05-12 13:24:47,937 -  -  started timer!
+[Monitor] - 2012-05-12 13:24:47,948 -  -  pinging http://adkfjasdlfja.com
+[Monitor] - 2012-05-12 13:24:47,949 -  -  pinging http://google.com
+[Monitor] - 2012-05-12 13:24:48,011 -  -  ping failed http://adkfjasdlfja.com
+[Monitor] - 2012-05-12 13:24:48,800 -  -  ping successful http://google.com
+[Monitor] - 2012-05-12 13:25:47,937 -  -  started timer!
+[Monitor] - 2012-05-12 13:25:47,948 -  -  pinging http://adkfjasdlfja.com
+[Monitor] - 2012-05-12 13:25:47,950 -  -  pinging http://google.com
+[Monitor] - 2012-05-12 13:25:47,952 -  -  ping failed http://adkfjasdlfja.com
+[Monitor] - 2012-05-12 13:25:48,084 -  -  ping successful http://google.com
+[Monitor] - 2012-05-12 13:26:47,937 -  -  started timer!
+[Monitor] - 2012-05-12 13:26:47,949 -  -  pinging http://adkfjasdlfja.com
+[Monitor] - 2012-05-12 13:26:47,949 -  -  pinging http://google.com
+[Monitor] - 2012-05-12 13:26:47,951 -  -  ping failed http://adkfjasdlfja.com
+[Monitor] - 2012-05-12 13:26:48,485 -  -  ping successful http://google.com
+[Monitor] - 2012-05-12 13:27:47,936 -  -  started timer!
+[Monitor] - 2012-05-12 13:27:47,948 -  -  pinging http://adkfjasdlfja.com
+[Monitor] - 2012-05-12 13:27:47,948 -  -  pinging http://google.com
+[Monitor] - 2012-05-12 13:27:47,950 -  -  ping failed http://adkfjasdlfja.com
+[Monitor] - 2012-05-12 13:27:48,088 -  -  ping successful http://google.com
+[Monitor] - 2012-05-12 13:28:47,936 -  -  started timer!
+[Monitor] - 2012-05-12 13:28:47,947 -  -  pinging http://adkfjasdlfja.com
+[Monitor] - 2012-05-12 13:28:47,947 -  -  pinging http://google.com
+[Monitor] - 2012-05-12 13:28:47,950 -  -  ping failed http://adkfjasdlfja.com
+[Monitor] - 2012-05-12 13:28:48,441 -  -  ping successful http://google.com
+[Monitor] - 2012-05-12 13:29:37,590 -  -  started timer!
+[Monitor] - 2012-05-12 13:29:37,597 -  - url : asdfasdfasd.com, email : mdshannan@gmail.com
+[Monitor] - 2012-05-12 13:29:37,608 -  - http://asdfasdfasd.com, mdshannan@gmail.com, 40d2243e-a7cd-40e0-9794-fe58aeefec92 is added to the queue!
+[Monitor] - 2012-05-12 13:29:47,436 -  - url : google.com, email : mdshannan@gmail.com
+[Monitor] - 2012-05-12 13:29:47,437 -  - http://google.com, mdshannan@gmail.com, eec9c9be-7293-4c57-8f39-0f65e6a9b056 is added to the queue!
+[Monitor] - 2012-05-12 13:30:37,593 -  -  started timer!
+[Monitor] - 2012-05-12 13:30:37,606 -  -  pinging http://asdfasdfasd.com
+[Monitor] - 2012-05-12 13:30:37,606 -  -  pinging http://google.com
+[Monitor] - 2012-05-12 13:30:37,925 -  -  ping successful http://asdfasdfasd.com
+[Monitor] - 2012-05-12 13:30:37,925 -  - java.lang.NullPointerException
+[Monitor] - 2012-05-12 13:30:37,926 -  -  ping failed http://asdfasdfasd.com
+[Monitor] - 2012-05-12 13:30:38,103 -  -  ping successful http://google.com
+[Monitor] - 2012-05-12 13:30:38,103 -  - java.lang.NullPointerException
+[Monitor] - 2012-05-12 13:30:38,104 -  -  ping failed http://google.com
+[Monitor] - 2012-05-12 13:31:37,584 -  -  started timer!
+[Monitor] - 2012-05-12 13:31:37,596 -  -  pinging http://asdfasdfasd.com
+[Monitor] - 2012-05-12 13:31:37,596 -  -  pinging http://google.com
+[Monitor] - 2012-05-12 13:31:37,804 -  -  ping successful http://asdfasdfasd.com
+[Monitor] - 2012-05-12 13:31:38,079 -  -  ping successful http://google.com
+[Monitor] - 2012-05-12 13:32:37,584 -  -  started timer!
+[Monitor] - 2012-05-12 13:32:37,595 -  -  pinging http://asdfasdfasd.com
+[Monitor] - 2012-05-12 13:32:37,595 -  -  pinging http://google.com
+[Monitor] - 2012-05-12 13:32:37,780 -  -  ping successful http://asdfasdfasd.com
+[Monitor] - 2012-05-12 13:32:38,086 -  -  ping successful http://google.com
+[Monitor] - 2012-05-12 13:33:37,619 -  -  started timer!
+[Monitor] - 2012-05-12 13:33:37,630 -  -  pinging http://asdfasdfasd.com
+[Monitor] - 2012-05-12 13:33:37,630 -  -  pinging http://google.com
+[Monitor] - 2012-05-12 13:33:37,765 -  -  ping successful http://google.com
+[Monitor] - 2012-05-12 13:33:37,813 -  -  ping successful http://asdfasdfasd.com
+[Monitor] - 2012-05-12 13:34:21,421 -  - url : http://xxxxxyyyy.com/, email : mdshannan@gmail.com
+[Monitor] - 2012-05-12 13:34:21,422 -  -  started timer!
+[Monitor] - 2012-05-12 13:34:21,436 -  - http://http://xxxxxyyyy.com/, mdshannan@gmail.com, cb9c4472-c2cb-41b6-a71b-abee93341465 is added to the queue!
+[Monitor] - 2012-05-12 13:34:21,462 -  -  pinging http://http://xxxxxyyyy.com/
+[Monitor] - 2012-05-12 13:34:21,544 -  - java.net.UnknownHostException: http
+[Monitor] - 2012-05-12 13:34:21,544 -  -  ping failed http://http://xxxxxyyyy.com/
+[Monitor] - 2012-05-12 13:35:52,930 -  -  started timer!
+[Monitor] - 2012-05-12 13:35:52,934 -  - url : http://xxxxxyyyy.com/, email : mdshannan@gmail.com
+[Monitor] - 2012-05-12 13:35:52,944 -  - http://xxxxxyyyy.com/, mdshannan@gmail.com, af7a0901-1a5c-4fb6-805e-8e49ec730f8a is added to the queue!
+[Monitor] - 2012-05-12 13:36:15,979 -  - url : xxxxxyyyy11.com/, email : mdshannan@gmail.com
+[Monitor] - 2012-05-12 13:36:15,980 -  - http://xxxxxyyyy11.com/, mdshannan@gmail.com, 1791f880-1ec1-440b-b550-6cdac68a99e3 is added to the queue!
+[Monitor] - 2012-05-12 13:36:52,929 -  -  started timer!
+[Monitor] - 2012-05-12 13:36:52,942 -  -  pinging http://xxxxxyyyy11.com/
+[Monitor] - 2012-05-12 13:36:52,942 -  -  pinging http://xxxxxyyyy.com/
+[Monitor] - 2012-05-12 13:36:52,995 -  - java.net.UnknownHostException: xxxxxyyyy11.com
+[Monitor] - 2012-05-12 13:36:52,995 -  -  ping failed http://xxxxxyyyy11.com/
+[Monitor] - 2012-05-12 13:36:53,389 -  - java.net.UnknownHostException: xxxxxyyyy.com
+[Monitor] - 2012-05-12 13:36:53,389 -  -  ping failed http://xxxxxyyyy.com/
+[Monitor] - 2012-05-12 13:37:52,930 -  -  started timer!
+[Monitor] - 2012-05-12 13:37:52,941 -  -  pinging http://xxxxxyyyy11.com/
+[Monitor] - 2012-05-12 13:37:52,941 -  -  pinging http://xxxxxyyyy.com/
+[Monitor] - 2012-05-12 13:37:52,944 -  - java.net.UnknownHostException: xxxxxyyyy11.com
+[Monitor] - 2012-05-12 13:37:52,944 -  -  ping failed http://xxxxxyyyy11.com/
+[Monitor] - 2012-05-12 13:37:52,944 -  - java.net.UnknownHostException: xxxxxyyyy.com
+[Monitor] - 2012-05-12 13:37:52,944 -  -  ping failed http://xxxxxyyyy.com/
+[Monitor] - 2012-05-12 13:41:10,437 -  -  started timer!
+[Monitor] - 2012-05-12 13:41:10,442 -  - url : http://xxxxxyyyy.com/, email : mdshannan@gmail.com
+[Monitor] - 2012-05-12 13:41:10,476 -  - http://xxxxxyyyy.com/, mdshannan@gmail.com, ea82be2c-da5a-4497-9438-aa5defeb9ea4 is added to the queue!
+[Monitor] - 2012-05-12 13:42:10,435 -  -  started timer!
+[Monitor] - 2012-05-12 13:42:10,450 -  -  pinging http://xxxxxyyyy.com/
+[Monitor] - 2012-05-12 13:42:10,466 -  - java.net.UnknownHostException: xxxxxyyyy.com
+[Monitor] - 2012-05-12 13:42:10,467 -  -  ping failed http://xxxxxyyyy.com/
+[Monitor] - 2012-05-12 13:43:10,435 -  -  started timer!
+[Monitor] - 2012-05-12 13:43:10,446 -  -  pinging http://xxxxxyyyy.com/
+[Monitor] - 2012-05-12 13:43:10,449 -  - java.net.UnknownHostException: xxxxxyyyy.com
+[Monitor] - 2012-05-12 13:43:10,449 -  -  ping failed http://xxxxxyyyy.com/
+[Monitor] - 2012-05-12 13:44:10,435 -  -  started timer!
+[Monitor] - 2012-05-12 13:44:10,447 -  -  pinging http://xxxxxyyyy.com/
+[Monitor] - 2012-05-12 13:44:10,454 -  - java.net.UnknownHostException: xxxxxyyyy.com
+[Monitor] - 2012-05-12 13:44:10,454 -  -  ping failed http://xxxxxyyyy.com/
+[Monitor] - 2012-05-12 13:44:14,380 -  - delete id : ea82be2c-da5a-4497-9438-aa5defeb9ea4
+[Monitor] - 2012-05-12 13:44:14,381 -  - ea82be2c-da5a-4497-9438-aa5defeb9ea4 trying to remove!
+[Monitor] - 2012-05-12 13:44:14,381 -  - ea82be2c-da5a-4497-9438-aa5defeb9ea4
+[Monitor] - 2012-05-12 13:44:14,381 -  - ea82be2c-da5a-4497-9438-aa5defeb9ea4
+[Monitor] - 2012-05-12 13:44:14,381 -  -  where == ? 
+[Monitor] - 2012-05-12 13:44:14,382 -  - ea82be2c-da5a-4497-9438-aa5defeb9ea4 is removed!
+[Monitor] - 2012-05-12 13:44:30,898 -  - url : google.com, email : mdshannan@gmail.com
+[Monitor] - 2012-05-12 13:44:30,899 -  - http://google.com, mdshannan@gmail.com, 3365a5b7-b5e1-41fb-985c-69ea04f51e06 is added to the queue!
+[Monitor] - 2012-05-12 13:45:10,436 -  -  started timer!
+[Monitor] - 2012-05-12 13:45:10,447 -  -  pinging http://google.com
+[Monitor] - 2012-05-12 13:45:11,048 -  -  ping successful http://google.com
+[Monitor] - 2012-05-12 13:46:10,435 -  -  started timer!
+[Monitor] - 2012-05-12 13:46:10,446 -  -  pinging http://google.com
+[Monitor] - 2012-05-12 13:46:11,003 -  -  ping successful http://google.com

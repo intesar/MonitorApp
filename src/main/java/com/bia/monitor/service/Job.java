@@ -13,7 +13,7 @@ public class Job implements Comparable {
     private String url;
     private String email;
     private String status = "NA";
-    private boolean lastUp;
+    private boolean lastUp = true;
     private Date upSince;
     private Date downSince;
 

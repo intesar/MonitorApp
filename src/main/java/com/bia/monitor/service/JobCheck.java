@@ -1,12 +1,10 @@
 package com.bia.monitor.service;
 
 import com.bia.monitor.email.EmailServiceImpl;
-import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -15,7 +13,7 @@ import java.util.logging.Logger;
 class JobCheck implements Runnable {
 
     private Job job;
-    protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(JobCheck.class);
+    protected static Logger logger = Logger.getLogger(JobCheck.class);
 
     JobCheck(Job job) {
         this.job = job;
@@ -54,19 +52,22 @@ class JobCheck implements Runnable {
             // 3nn is redirect
             // 4nn is client error
             // 5nn is server error
-        } catch (IOException ex) {
-            Logger.getLogger(JobCheck.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            logger.warn(ex);
         }
         if (logger.isTraceEnabled()) {
             logger.trace(" ping failed " + job.getUrl());
         }
-        job.setLastUp(false);
-        job.setDownSince(new Date());
-        job.setStatus("Down");
-        // send alert email
-        StringBuilder body = new StringBuilder();
-        body.append(job.getUrl()).append(" is Down! ");
-        EmailServiceImpl.getInstance().sendEmail(job.getEmail(), job.getUrl() + " is Down!", "");
+        // only send mail for the first time
+        if (job.isLastUp()) {
+            job.setLastUp(false);
+            job.setDownSince(new Date());
+            job.setStatus("Down");
+            // send alert email
+            StringBuilder body = new StringBuilder();
+            body.append(job.getUrl()).append(" is Down! ");
+            EmailServiceImpl.getInstance().sendEmail(job.getEmail(), job.getUrl() + " is Down!", "");
+        }
 
     }
 }

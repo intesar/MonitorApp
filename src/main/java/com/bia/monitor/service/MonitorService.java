@@ -8,6 +8,7 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import org.apache.commons.validator.routines.EmailValidator;
 
 /**
  *
@@ -29,9 +30,15 @@ public class MonitorService {
     }
 
     public String add(String url, String email) {
-        if (url == null || url.trim().length() <= 4 || email == null || email.trim().length() <= 4) {
+        if ( (!isValidEmail(email)) || (url == null || url.trim().length() <= 4)) {
             return "Invalid data!";
         }
+        
+        String url_ = url.toLowerCase();
+        if ( !url_.startsWith("http://") && !url_.startsWith("https://")) {
+            url = "http://" + url;
+        }
+        
         if (!isValidUrl(url, email)) {
             if (logger.isTraceEnabled()) {
                 logger.trace(url + ", " + email + " is not valid!");
@@ -47,6 +54,18 @@ public class MonitorService {
         return "Check email!";
     }
 
+    /**
+     *
+     * @param emails
+     * @return
+     */
+    private boolean isValidEmail(String email) {
+        if (!EmailValidator.getInstance().isValid(email)) {
+            return false;
+        }
+        return true;
+    }
+
     private String monitor(String url, String email) {
         // add 
         Job job = new Job();
@@ -58,18 +77,7 @@ public class MonitorService {
         list.add(job);
 
         StringBuilder body = new StringBuilder();
-        body.append("Your submitted data! <br/>")
-                .append("<p>Url : ").append(url).append("<br/>")
-                .append("Email : ").append(email).append("<br/><br/>")
-                .append("Free Upcoming Features!").append("<br/>")
-                .append("1. Free Site/Web Service Monitor <br/>")
-                .append("2. Free Alerts <br/>")
-                .append("3. Free weekly reports <br/>")
-                .append("4. Free Social Media coverage on Twitter, G+, FB, Pinterest, Blogger, Reddit for 95+ uptime!").append("<br/><br/>")
-                .append("If you like this service please refer to your friends --  ").append("http://www.zytoon.me/monitor/ <br/><br/>")
-                .append("Important link ... <br/>")
-                .append("<a href=\"http://www.zytoon.me/monitor/rest/monitor/status/").append(job.getId()).append("\"> Show me site status </a> <br/>")
-                .append(" <a href=\"http://www.zytoon.me/monitor/rest/monitor/delete/").append(job.getId()).append("\" > Stop monitoring my site! </a> ");
+        body.append("Your submitted data! <br/>").append("<p>Url : ").append(url).append("<br/>").append("Email : ").append(email).append("<br/><br/>").append("Free Upcoming Features!").append("<br/>").append("1. Free Site/Web Service Monitor <br/>").append("2. Free Alerts <br/>").append("3. Free weekly reports <br/>").append("4. Free Social Media coverage on Twitter, G+, FB, Pinterest, Blogger, Reddit for 95+ uptime!").append("<br/><br/>").append("If you like this service please refer to your friends --  ").append("http://www.zytoon.me/monitor/ <br/><br/>").append("Important link ... <br/>").append("<a href=\"http://www.zytoon.me/monitor/rest/monitor/status/").append(job.getId()).append("\"> Show me site status </a> <br/>").append(" <a href=\"http://www.zytoon.me/monitor/rest/monitor/delete/").append(job.getId()).append("\" > Stop monitoring my site! </a> ");
         emailService.sendEmail(email, "Congratulations we are monitoring your site!", body.toString());
 
         return job.getId();
@@ -110,7 +118,7 @@ public class MonitorService {
                 list.remove(j);
                 StringBuilder body = new StringBuilder();
                 body.append("Your submitted data! <br/>").append("<p>Url : ").append(j.getUrl()).append("<br/>").append("Email : ").append(j.getEmail()).append("<br/><br/>").append("Thanks for using http://www.zytoon.me/monitor/");
-                        
+
                 emailService.sendEmail(j.getEmail(), "Your site is no longer monitored!", body.toString());
 
                 if (logger.isTraceEnabled()) {
@@ -122,9 +130,9 @@ public class MonitorService {
 
         return false;
     }
-    
+
     public String status(String id) {
-        
+
         for (Job j : list) {
             if (logger.isTraceEnabled()) {
                 logger.trace(j.getId());
@@ -133,15 +141,13 @@ public class MonitorService {
 
             }
             if (j.getId().equals(id)) {
-                
-                int mins =  (int) ((new Date().getTime() / 60000) - (j.getUpSince().getTime() / 60000));
-                
+
+                int mins = (int) ((new Date().getTime() / 60000) - (j.getUpSince().getTime() / 60000));
+
                 StringBuilder reply = new StringBuilder();
-                reply.append("{url : ").append(j.getUrl())
-                     .append(", Status : ").append(j.getStatus())
-                     .append(", Since : ").append(mins).append(" minutes}");
+                reply.append("{url : ").append(j.getUrl()).append(", Status : ").append(j.getStatus()).append(", Since : ").append(mins).append(" minutes}");
                 return reply.toString();
-                
+
             }
         }
 
