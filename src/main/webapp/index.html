@@ -2,79 +2,79 @@
 <!DOCTYPE html> 
 <html>     
     <head> 
-        <title>Page Title</title> 
+        <title>Site Monitor</title> 
 
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
 
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
         <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
-        
-        <style type="text/css">
-            .left{
-                width: 1%;
-                float: left;
-                text-align: right;
-            }
+        <script type="text/javascript">
+            $(document).ready(function() {
+                
+                $("#monitorBtn").tap(function() {
+                    
+                    var call = $.ajax({
+                        type: 'POST',
+                        url: '/rest/monitor/',
+                        contentType: 'application/json',
+                        data: {url:$("#url").val(), email:$("#email").val()},
+                        dataType: 'json',
+                        async: false,
+                        success : function(reply){
+                            alert(reply);
+                        }
+                    })
+                    alert("Please check your email!")
+                    $("#url").val("");
+                    $("#email").val("");
+                })
+                
+            });
             
-            .right{
-                width: 80%;
-                margin-left: 1%;
-                float: left;
-            }
-            p{
-                text-align: center;
-                margin-top: 3%;
-            }
-            btx{
-                margin-top: 300%;
-            }
-            
-        </style>
+        </script>
+
     </head>
 
 
     <body> 
         <br/>
+
         <div data-role="page">
 
             <!-- /header -->
             <div data-role="header">
-                    <h1>Site Footprints</h1>
+                <h1>Monitor Websites & API's</h1>
             </div>
 
-            <!-- /content -->
-            <form name="trackSite">
-            <div data-role="fieldcontain">
-                <p>
-                    <b>Site Footprints</b> will alert you when your site is down.  Enter your email address and the URL 
-                    and we'll do the rest.  
-                </p>
-                <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                    <label for="email" class="ui-input-text left">Email:</label>
-                    <input type="email" name="email" id="email" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset right">
-                </div>
-                
-                <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                    <label for="url" class="ui-input-text left">URL:</label>
-                    <input type="url" name="url" id="url" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset right">
-		</div>
-                <br><br>    
-                
-                
-                <!--div class="btx">
-                    <input type="reset" class="btx" data-mini="true" data-inline="true" value="Reset!">
-                    <a href="index.html" class="btx" data-role="button" data-mini="true" data-inline="true" data-theme="a">Track</a>
-                </div-->
-                
-            </div>
-            <div class="btx">                    
-                <input type="reset" data-inline="true" data-mini="true" value="Reset">
-                <a href="index.html" data-role="button"  data-inline="true" data-mini="true">Track</a>
-            </div>
-            </form>
+            <div data-role="content" style="padding:10%" class="center">
+
+                <fieldset>
+
+                    <div data-role="fieldcontain" data-inline="true" style="width: 100%;">
+                        <label>Enter your site URL <span style="color:red">*</span></label><br/>
+                        <input id="url" name="url" type="text" value="">
+                    </div>
+
+                    <div data-role="fieldcontain" data-inline="true" style="width: 100%;">
+                        <label>Email to receive alerts <span style="color:red">*</span></label><br/>
+                        <input id="email" name="email" class="required" type="text" value="">
+                    </div>
+
+
+                    <br/>
+
+                    <div data-inline="true" style="width: 50%;">
+                        <input type="button" data-role="button" data-theme="b" id="monitorBtn" value="Start Monitoring!" />
+                    </div>
+
+                </fieldset>
+
+            </div><!-- /content -->
+
 
         </div><!-- /page -->
 
-        </body>
+    </body>
+
 </html>

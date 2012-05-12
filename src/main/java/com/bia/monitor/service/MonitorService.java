@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.bia.monitor.service;
 
 import com.bia.monitor.email.EmailService;
@@ -32,12 +28,14 @@ public class MonitorService {
     }
 
     public String add(String url, String email) {
-
+        if ( url == null || url.trim().length() <= 4 || email == null || email.trim().length() <= 4 ) {
+            return "Invalid data!";
+        }
         if (!isValidUrl(url, email)) {
             if (logger.isTraceEnabled()) {
                 logger.trace(url + ", " + email + " is not valid!");
             }
-            return "Request failed!";
+            return "Check email!";
         }
 
 
@@ -45,7 +43,7 @@ public class MonitorService {
         if (logger.isTraceEnabled()) {
             logger.trace(url + ", " + email + ", " + id + " is added to the queue!");
         }
-        return id;
+        return "Check email!";
     }
 
     private String monitor(String url, String email) {

@@ -1,14 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.bia.monitor.service;
 
-import com.bia.monitor.email.EmailServiceImpl;
 import com.bia.monitor.email.EmailService;
+import com.bia.monitor.email.EmailServiceImpl;
 import java.util.Date;
+import static org.junit.Assert.fail;
 import org.junit.*;
-import static org.junit.Assert.*;
 
 /**
  *
