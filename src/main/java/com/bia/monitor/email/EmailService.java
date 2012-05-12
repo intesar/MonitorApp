@@ -10,7 +10,7 @@ public interface EmailService {
     String SMTP_PORT = "465";
     String EMAIL_FROM_ADDRESS = "team@zytoon.me";
     String SEND_FROM_USERNAME = "team@zytoon.me";
-    String SEND_FROM_PASSWORD = "";
+    String SEND_FROM_PASSWORD = "Teamu123$";
     String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
     String EMAIL_CONTENT_TYPE = "text/html";
     String EMAIL_SIGNATURE = "<br/>"
