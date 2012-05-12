@@ -28,7 +28,7 @@ public class MonitorService {
     }
 
     public String add(String url, String email) {
-        if ( url == null || url.trim().length() <= 4 || email == null || email.trim().length() <= 4 ) {
+        if (url == null || url.trim().length() <= 4 || email == null || email.trim().length() <= 4) {
             return "Invalid data!";
         }
         if (!isValidUrl(url, email)) {
@@ -57,7 +57,17 @@ public class MonitorService {
         list.add(job);
 
         StringBuilder body = new StringBuilder();
-        body.append("Your submitted data! <br/>").append("<p>Url : ").append(url).append("<br/>").append("Email : ").append(email).append("<br/><br/>").append(" <a href=\"http://www.zytoon.me/monitor/rest/monitor/delete/").append(job.getId()).append("\" > Click here to remove monitor</a>  ");
+        body.append("Your submitted data! <br/>")
+                .append("<p>Url : ").append(url).append("<br/>")
+                .append("Email : ").append(email).append("<br/><br/>")
+                .append("Free Upcoming Features!").append("<br/>")
+                .append("1. Free Site/Web Service Monitor <br/>")
+                .append("2. Free Alerts <br/>")
+                .append("3. Free weekly reports <br/>")
+                .append("4. Free Social Media coverage on Twitter, G+, FB, Pinterest, Blogger, Reddit for 95+ uptime!").append("<br/><br/>")
+                .append("If you like please refer to your friends --  ").append("http://www.zytoon.me/monitor/ <br/><br/>")
+                .append("Unsusbcribe link ...")
+                .append(" <a href=\"http://www.zytoon.me/monitor/rest/monitor/delete/").append(job.getId()).append("\" > Stop monitoring my site! </a>  ");
         emailService.sendEmail(email, "Congratulations we are monitoring your site!", body.toString());
 
         return job.getId();
@@ -89,13 +99,18 @@ public class MonitorService {
         }
         for (Job j : list) {
             if (logger.isTraceEnabled()) {
-                logger.trace(j.getId() );
+                logger.trace(j.getId());
                 logger.trace(id);
                 logger.trace(" where == ? ");
-                
+
             }
             if (j.getId().equals(id)) {
                 list.remove(j);
+                StringBuilder body = new StringBuilder();
+                body.append("Your submitted data! <br/>").append("<p>Url : ").append(j.getUrl()).append("<br/>").append("Email : ").append(j.getEmail()).append("<br/><br/>").append("Thanks for using http://www.zytoon.me/monitor/");
+                        
+                emailService.sendEmail(j.getEmail(), "Your site is no longer monitored!", body.toString());
+
                 if (logger.isTraceEnabled()) {
                     logger.trace(id + " is removed!");
                 }

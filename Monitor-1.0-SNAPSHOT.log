@@ -1220,3 +1220,20 @@ java.lang.NullPointerException
 [Monitor] - 2012-05-11 18:10:50,386 -  -  ping successful https://www.google.com
 [Monitor] - 2012-05-11 18:10:50,454 -  -  ping successful http://www.zytoon.me
 [Monitor] - 2012-05-11 18:10:50,772 -  -  ping successful http://mdshannan1.blogspot.com/2012/04/hp-cloud-compute-pricing-instance-type.html
+[Monitor] - 2012-05-12 01:24:21,965 -  -  started timer!
+[Monitor] - 2012-05-12 01:24:21,974 -  - url : http://www.zytoon.me, email : intesar@ymail.com
+[Monitor] - 2012-05-12 01:24:22,004 -  - http://www.zytoon.me, intesar@ymail.com, bed96ab4-4c52-4c14-91ac-f1e30240e7d1 is added to the queue!
+[Monitor] - 2012-05-12 01:25:21,964 -  -  started timer!
+[Monitor] - 2012-05-12 01:25:22,001 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-12 01:25:22,727 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-12 01:26:21,964 -  -  started timer!
+[Monitor] - 2012-05-12 01:26:21,990 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-12 01:26:22,263 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-12 01:27:03,852 -  - url : http://www.zytoon.me, email : intesar@ymail.com
+[Monitor] - 2012-05-12 01:27:03,852 -  -  started timer!
+[Monitor] - 2012-05-12 01:27:03,861 -  - http://www.zytoon.me, intesar@ymail.com, 649a2736-dda3-49de-8aa8-3cb56ed91369 is added to the queue!
+[Monitor] - 2012-05-12 01:27:03,910 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-12 01:27:04,160 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-12 01:28:03,847 -  -  started timer!
+[Monitor] - 2012-05-12 01:28:03,858 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-12 01:28:04,070 -  -  ping successful http://www.zytoon.me
