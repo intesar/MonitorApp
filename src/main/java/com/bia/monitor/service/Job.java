@@ -12,7 +12,9 @@ public class Job implements Comparable {
     private String id;
     private String url;
     private String email;
+    private String status = "NA";
     private boolean lastUp;
+    private Date upSince;
     private Date downSince;
 
     public String getEmail() {
@@ -47,6 +49,22 @@ public class Job implements Comparable {
         this.url = url;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Date getUpSince() {
+        return upSince;
+    }
+
+    public void setUpSince(Date upSince) {
+        this.upSince = upSince;
+    }
+    
     public Date getDownSince() {
         return downSince;
     }

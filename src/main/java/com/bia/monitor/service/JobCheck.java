@@ -34,8 +34,10 @@ class JobCheck implements Runnable {
                 if (logger.isTraceEnabled()) {
                     logger.trace(" ping successful " + job.getUrl());
                 }
+                job.setStatus("Running");
                 if (!job.isLastUp()) {
                     job.setLastUp(true);
+                    job.setUpSince(new Date());
                     // send site up notification
                     int mins = (int) ((new Date().getTime() / 60000) - (job.getDownSince().getTime() / 60000));
                     StringBuilder body = new StringBuilder();
@@ -60,6 +62,7 @@ class JobCheck implements Runnable {
         }
         job.setLastUp(false);
         job.setDownSince(new Date());
+        job.setStatus("Down");
         // send alert email
         StringBuilder body = new StringBuilder();
         body.append(job.getUrl()).append(" is Down! ");

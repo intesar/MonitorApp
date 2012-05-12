@@ -45,4 +45,16 @@ public class MonitorRest {
             return "Cannot find your site in active list!";
         }
     }
+    
+    // curl -i -X GET http://localhost:8080/rest/monitor/status/34343
+    //http://localhost:8080/rest/monitor/status/123
+    @GET
+    @Path("/status/{id}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public String status(@PathParam("id") String id) {
+        if (logger.isTraceEnabled()) {
+            logger.trace("status id : " + id);
+        }
+        return service.status(id);
+    }
 }

@@ -1237,3 +1237,53 @@ java.lang.NullPointerException
 [Monitor] - 2012-05-12 01:28:03,847 -  -  started timer!
 [Monitor] - 2012-05-12 01:28:03,858 -  -  pinging http://www.zytoon.me
 [Monitor] - 2012-05-12 01:28:04,070 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-12 01:57:15,025 -  -  started timer!
+[Monitor] - 2012-05-12 01:57:15,031 -  - url : http://www.zytoon.me, email : intesar@ymail.com
+[Monitor] - 2012-05-12 01:57:15,033 -  - http://www.zytoon.me, intesar@ymail.com, 5e9edf4b-1f6e-4904-9d07-76b6fbfe9bd7 is added to the queue!
+[Monitor] - 2012-05-12 01:58:15,023 -  -  started timer!
+[Monitor] - 2012-05-12 01:58:15,036 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-12 01:58:15,688 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-12 01:58:50,169 -  - delete id : 5e9edf4b-1f6e-4904-9d07-76b6fbfe9bd7
+[Monitor] - 2012-05-12 01:58:50,169 -  - 5e9edf4b-1f6e-4904-9d07-76b6fbfe9bd7
+[Monitor] - 2012-05-12 01:58:50,169 -  - 5e9edf4b-1f6e-4904-9d07-76b6fbfe9bd7
+[Monitor] - 2012-05-12 01:58:50,169 -  -  where == ? 
+[Monitor] - 2012-05-12 01:59:15,023 -  -  started timer!
+[Monitor] - 2012-05-12 01:59:15,035 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-12 01:59:15,246 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-12 02:00:32,137 -  -  started timer!
+[Monitor] - 2012-05-12 02:00:32,140 -  - url : http://www.zytoon.me, email : intesar@ymail.com
+[Monitor] - 2012-05-12 02:00:32,143 -  - http://www.zytoon.me, intesar@ymail.com, 68c9db97-2fa8-4b76-a3f6-221552c552e9 is added to the queue!
+[Monitor] - 2012-05-12 02:00:50,683 -  - delete id : 68c9db97-2fa8-4b76-a3f6-221552c552e9
+[Monitor] - 2012-05-12 02:00:50,684 -  - 68c9db97-2fa8-4b76-a3f6-221552c552e9
+[Monitor] - 2012-05-12 02:00:50,684 -  - 68c9db97-2fa8-4b76-a3f6-221552c552e9
+[Monitor] - 2012-05-12 02:00:50,684 -  -  where == ? 
+[Monitor] - 2012-05-12 02:01:32,130 -  -  started timer!
+[Monitor] - 2012-05-12 02:01:32,144 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-12 02:01:32,738 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-12 02:02:32,130 -  -  started timer!
+[Monitor] - 2012-05-12 02:02:32,142 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-12 02:02:32,376 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-12 02:03:32,130 -  -  started timer!
+[Monitor] - 2012-05-12 02:03:32,142 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-12 02:03:32,703 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-12 02:04:18,691 -  -  started timer!
+[Monitor] - 2012-05-12 02:04:18,699 -  - url : http://www.zytoon.me, email : intesar@ymail.com
+[Monitor] - 2012-05-12 02:04:18,702 -  - http://www.zytoon.me, intesar@ymail.com, 08ff0aad-15a5-4d54-a4de-f8c7db8abcbd is added to the queue!
+[Monitor] - 2012-05-12 02:04:53,467 -  - delete id : 08ff0aad-15a5-4d54-a4de-f8c7db8abcbd
+[Monitor] - 2012-05-12 02:04:53,468 -  - 08ff0aad-15a5-4d54-a4de-f8c7db8abcbd
+[Monitor] - 2012-05-12 02:04:53,468 -  - 08ff0aad-15a5-4d54-a4de-f8c7db8abcbd
+[Monitor] - 2012-05-12 02:04:53,469 -  -  where == ? 
+[Monitor] - 2012-05-12 02:05:18,685 -  -  started timer!
+[Monitor] - 2012-05-12 02:05:18,699 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-12 02:05:19,260 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-12 02:06:18,685 -  -  started timer!
+[Monitor] - 2012-05-12 02:06:18,696 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-12 02:06:18,926 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-12 02:06:32,298 -  - delete id : 08ff0aad-15a5-4d54-a4de-f8c7db8abcbd
+[Monitor] - 2012-05-12 02:06:32,299 -  - 08ff0aad-15a5-4d54-a4de-f8c7db8abcbd
+[Monitor] - 2012-05-12 02:06:32,299 -  - 08ff0aad-15a5-4d54-a4de-f8c7db8abcbd
+[Monitor] - 2012-05-12 02:06:32,299 -  -  where == ? 
+[Monitor] - 2012-05-12 02:06:33,224 -  - delete id : error.gif
+[Monitor] - 2012-05-12 02:06:33,227 -  - 08ff0aad-15a5-4d54-a4de-f8c7db8abcbd
+[Monitor] - 2012-05-12 02:06:33,228 -  - error.gif
+[Monitor] - 2012-05-12 02:06:33,228 -  -  where == ? 
