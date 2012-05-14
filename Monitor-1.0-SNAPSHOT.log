@@ -1405,3 +1405,159 @@ java.lang.NullPointerException
 [Monitor] - 2012-05-12 13:46:10,435 -  -  started timer!
 [Monitor] - 2012-05-12 13:46:10,446 -  -  pinging http://google.com
 [Monitor] - 2012-05-12 13:46:11,003 -  -  ping successful http://google.com
+[Monitor] - 2012-05-13 17:30:12,554 -  -  started timer!
+[Monitor] - 2012-05-13 17:30:12,560 -  - url : http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html, email : mdshannan@gmail.com
+[Monitor] - 2012-05-13 17:30:12,569 -  - http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html, mdshannan@gmail.com, 727bf0ee-147a-4cbd-862e-5d8143b77d80 is added to the queue!
+[Monitor] - 2012-05-13 17:31:12,553 -  -  started timer!
+[Monitor] - 2012-05-13 17:31:12,565 -  -  pinging http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:31:13,184 -  -  ping successful http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:32:12,553 -  -  started timer!
+[Monitor] - 2012-05-13 17:32:12,564 -  -  pinging http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:32:12,902 -  - java.net.UnknownHostException: mdshannan1.blogspot.com
+[Monitor] - 2012-05-13 17:32:12,902 -  -  ping failed http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:33:12,558 -  -  started timer!
+[Monitor] - 2012-05-13 17:33:12,569 -  -  pinging http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:33:13,116 -  -  ping successful http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:34:12,553 -  -  started timer!
+[Monitor] - 2012-05-13 17:34:12,564 -  -  pinging http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:34:12,689 -  -  ping successful http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:35:12,553 -  -  started timer!
+[Monitor] - 2012-05-13 17:35:12,565 -  -  pinging http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:35:13,124 -  -  ping successful http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:36:12,553 -  -  started timer!
+[Monitor] - 2012-05-13 17:36:12,564 -  -  pinging http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:36:13,071 -  -  ping successful http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:37:12,553 -  -  started timer!
+[Monitor] - 2012-05-13 17:37:12,564 -  -  pinging http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:37:13,071 -  -  ping successful http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:38:12,604 -  -  started timer!
+[Monitor] - 2012-05-13 17:38:12,616 -  -  pinging http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:38:12,818 -  -  ping successful http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:39:12,552 -  -  started timer!
+[Monitor] - 2012-05-13 17:39:12,564 -  -  pinging http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:39:13,105 -  -  ping successful http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:40:12,553 -  -  started timer!
+[Monitor] - 2012-05-13 17:40:12,564 -  -  pinging http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:40:13,334 -  -  ping successful http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:41:12,553 -  -  started timer!
+[Monitor] - 2012-05-13 17:41:12,564 -  -  pinging http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:41:17,972 -  -  ping failed http://mdshannan1.blogspot.com/2011/09/use-java-melody-to-see-into-production.html
+[Monitor] - 2012-05-13 17:41:51,463 -  -  started timer!
+[Monitor] - 2012-05-13 17:41:51,468 -  - url : http://mdshannan1.blogspot.com/, email : mdshannan@gmail.com
+[Monitor] - 2012-05-13 17:41:51,477 -  - http://mdshannan1.blogspot.com/, mdshannan@gmail.com, b42dda25-9823-4f63-bd72-68d6161d5187 is added to the queue!
+[Monitor] - 2012-05-13 17:41:51,509 -  - Sending email..
+[Monitor] - 2012-05-13 17:42:51,461 -  -  started timer!
+[Monitor] - 2012-05-13 17:42:51,521 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:42:52,051 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:43:51,462 -  -  started timer!
+[Monitor] - 2012-05-13 17:43:51,473 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:43:51,812 -  - java.net.UnknownHostException: mdshannan1.blogspot.com
+[Monitor] - 2012-05-13 17:43:51,813 -  -  ping failed http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:43:51,815 -  - Sending email..
+[Monitor] - 2012-05-13 17:44:51,461 -  -  started timer!
+[Monitor] - 2012-05-13 17:44:51,473 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:44:51,650 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:44:51,652 -  - Sending email..
+[Monitor] - 2012-05-13 17:45:51,461 -  -  started timer!
+[Monitor] - 2012-05-13 17:45:51,472 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:46:07,738 -  -  ping failed http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:46:07,741 -  - Sending email..
+[Monitor] - 2012-05-13 17:46:51,461 -  -  started timer!
+[Monitor] - 2012-05-13 17:46:51,472 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:46:51,955 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:46:51,957 -  - Sending email..
+[Monitor] - 2012-05-13 17:47:51,461 -  -  started timer!
+[Monitor] - 2012-05-13 17:47:51,472 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:47:51,620 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:49:42,991 -  -  started timer!
+[Monitor] - 2012-05-13 17:49:42,997 -  - url : http://mdshannan1.blogspot.com/, email : mdshannan@gmail.com
+[Monitor] - 2012-05-13 17:49:43,005 -  - http://mdshannan1.blogspot.com/, mdshannan@gmail.com, b23198b2-a21b-4884-a87e-f4f5a5f4068f is added to the queue!
+[Monitor] - 2012-05-13 17:49:43,039 -  - Sending email..
+[Monitor] - 2012-05-13 17:49:57,990 -  -  started timer!
+[Monitor] - 2012-05-13 17:49:58,043 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:49:58,541 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:50:12,989 -  -  started timer!
+[Monitor] - 2012-05-13 17:50:13,002 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:50:13,121 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:50:27,990 -  -  started timer!
+[Monitor] - 2012-05-13 17:50:28,001 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:50:28,123 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:50:42,989 -  -  started timer!
+[Monitor] - 2012-05-13 17:50:43,001 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:50:43,138 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:50:57,989 -  -  started timer!
+[Monitor] - 2012-05-13 17:50:58,000 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:50:58,001 -  - Ping returned status code : 0
+[Monitor] - 2012-05-13 17:50:58,001 -  -  ping failed http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:50:58,012 -  - Sending email..
+[Monitor] - 2012-05-13 17:51:12,990 -  -  started timer!
+[Monitor] - 2012-05-13 17:51:13,001 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:51:13,131 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:51:13,137 -  - Sending email..
+[Monitor] - 2012-05-13 17:51:27,990 -  -  started timer!
+[Monitor] - 2012-05-13 17:51:28,002 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:51:28,549 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:51:42,989 -  -  started timer!
+[Monitor] - 2012-05-13 17:51:43,000 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:51:43,140 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:51:57,989 -  -  started timer!
+[Monitor] - 2012-05-13 17:51:58,000 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:51:58,174 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:52:12,990 -  -  started timer!
+[Monitor] - 2012-05-13 17:52:13,001 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:52:13,145 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:52:27,990 -  -  started timer!
+[Monitor] - 2012-05-13 17:52:28,001 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:52:28,144 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:52:42,990 -  -  started timer!
+[Monitor] - 2012-05-13 17:52:43,001 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:52:43,145 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:52:57,903 -  - url : www.zytoon.me, email : mdshannan@gmail.com
+[Monitor] - 2012-05-13 17:52:57,905 -  - http://www.zytoon.me, mdshannan@gmail.com, 9bef6f58-36e5-433a-86e7-69a93e54a740 is added to the queue!
+[Monitor] - 2012-05-13 17:52:57,906 -  - Sending email..
+[Monitor] - 2012-05-13 17:52:57,989 -  -  started timer!
+[Monitor] - 2012-05-13 17:52:58,001 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-13 17:52:58,001 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:52:58,553 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-13 17:52:58,558 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:53:12,990 -  -  started timer!
+[Monitor] - 2012-05-13 17:53:13,002 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-13 17:53:13,002 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:53:13,158 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:53:13,316 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-13 17:53:27,989 -  -  started timer!
+[Monitor] - 2012-05-13 17:53:28,000 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-13 17:53:28,002 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:53:28,143 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:53:28,225 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-13 17:53:33,995 -  - url : http://www.zytoon.me/robot.txt, email : mdshannan@gmail.com
+[Monitor] - 2012-05-13 17:53:33,996 -  - http://www.zytoon.me/robot.txt, mdshannan@gmail.com, f254e02d-17a2-4b0e-b566-6c5c74fc4375 is added to the queue!
+[Monitor] - 2012-05-13 17:53:34,020 -  - Sending email..
+[Monitor] - 2012-05-13 17:53:42,989 -  -  started timer!
+[Monitor] - 2012-05-13 17:53:43,000 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-13 17:53:43,002 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:53:43,002 -  -  pinging http://www.zytoon.me/robot.txt
+[Monitor] - 2012-05-13 17:53:43,137 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:53:43,272 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-13 17:53:43,274 -  -  ping failed http://www.zytoon.me/robot.txt
+[Monitor] - 2012-05-13 17:53:43,276 -  - Sending email..
+[Monitor] - 2012-05-13 17:53:57,990 -  -  started timer!
+[Monitor] - 2012-05-13 17:53:58,003 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-13 17:53:58,003 -  -  pinging http://www.zytoon.me/robot.txt
+[Monitor] - 2012-05-13 17:53:58,003 -  -  pinging http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:53:58,223 -  -  ping successful http://mdshannan1.blogspot.com/
+[Monitor] - 2012-05-13 17:53:58,276 -  -  ping failed http://www.zytoon.me/robot.txt
+[Monitor] - 2012-05-13 17:53:58,288 -  -  ping successful http://www.zytoon.me
+[Monitor] - 2012-05-13 17:54:53,688 -  - url : www.zytoon.me/robot, email : mdshannan@gmail.com
+[Monitor] - 2012-05-13 17:54:53,688 -  -  started timer!
+[Monitor] - 2012-05-13 17:54:53,704 -  - http://www.zytoon.me/robot, mdshannan@gmail.com, 830a8fa2-e77d-45c7-9785-0728ee7157a1 is added to the queue!
+[Monitor] - 2012-05-13 17:54:53,750 -  - Sending email..
+[Monitor] - 2012-05-13 17:55:08,683 -  -  started timer!
+[Monitor] - 2012-05-13 17:55:08,696 -  -  pinging http://www.zytoon.me/robot
+[Monitor] - 2012-05-13 17:55:09,480 -  -  ping successful http://www.zytoon.me/robot
+[Monitor] - 2012-05-13 17:55:23,683 -  -  started timer!
+[Monitor] - 2012-05-13 17:55:23,695 -  -  pinging http://www.zytoon.me/robot
+[Monitor] - 2012-05-13 17:55:24,124 -  -  ping successful http://www.zytoon.me/robot
+[Monitor] - 2012-05-13 17:55:38,684 -  -  started timer!
+[Monitor] - 2012-05-13 17:55:38,695 -  -  pinging http://www.zytoon.me/robot
+[Monitor] - 2012-05-13 17:55:39,158 -  -  ping successful http://www.zytoon.me/robot

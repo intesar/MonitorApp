@@ -1,7 +1,5 @@
 package com.bia.monitor.service;
 
-import com.bia.monitor.email.EmailService;
-import com.bia.monitor.email.EmailServiceImpl;
 import java.util.Date;
 import java.util.Set;
 import java.util.UUID;
@@ -24,7 +22,7 @@ public class MonitorService {
 
     private MonitorService() {
         list = new ConcurrentSkipListSet<Job>();
-        emailService = EmailServiceImpl.getInstance();
+        emailService = EmailService.getInstance();
         executor = new ScheduledThreadPoolExecutor(10);
         setUpExecutor();
     }
@@ -160,7 +158,7 @@ public class MonitorService {
 
     // veify method implementation begin
     private void setUpExecutor() {
-        executor.scheduleAtFixedRate(new VerifyMethod(), 0, 1, TimeUnit.MINUTES);
+        executor.scheduleAtFixedRate(new VerifyMethod(), 0, 15, TimeUnit.SECONDS);
     }
 
     // this object will executed every 5 mins
