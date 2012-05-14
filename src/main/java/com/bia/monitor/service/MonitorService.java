@@ -158,7 +158,7 @@ public class MonitorService {
 
     // veify method implementation begin
     private void setUpExecutor() {
-        executor.scheduleAtFixedRate(new VerifyMethod(), 0, 15, TimeUnit.SECONDS);
+        executor.scheduleAtFixedRate(new VerifyMethod(), 0, 5, TimeUnit.MINUTES);
     }
 
     // this object will executed every 5 mins
