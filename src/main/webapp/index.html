@@ -9,8 +9,43 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
         <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+
+        <style>
+            .center{
+                text-align: center;
+                font:15px arial,sans-serif;                
+            }
+
+            .greyText{
+                color: #999999;
+            }
+
+        </style>
+
         <script type="text/javascript">
             $(document).ready(function() {
+                
+                $("#email").focus(function(){
+                    if($(this).val() == "Email to receive alerts (required)"){
+                        $(this).val("");
+                    }
+                })                
+                $("#email").blur(function(){
+                    if($(this).val().length == 0){
+                        $(this).val("Email to receive alerts (required)");
+                    }
+                })
+                
+                $("#url").focus(function(){
+                    if($(this).val() == "Enter your site URL (required)"){
+                        $(this).val("");
+                    }
+                })                
+                $("#url").blur(function(){                    
+                    if($(this).val().length == 0){
+                        $(this).val("Enter your site URL (required)");
+                    }
+                })
                 
                 $("#monitorBtn").tap(function() {
                     
@@ -28,8 +63,7 @@
                     alert("Please check your email!")
                     $("#url").val("");
                     $("#email").val("");
-                })
-                
+                })                
             });
             
         </script>
@@ -39,6 +73,7 @@
 
     <body> 
         <br/>
+        <br/>
 
         <div data-role="page">
 
@@ -47,24 +82,33 @@
                 <h1>Monitor Websites & API's</h1>
             </div>
 
-            <div data-role="content" style="padding:10%" class="center">
+            <div class="center">
+                <p>                   
+                    <b>Monitor Websites</b> will alert you when your site will down<br/>
+                </p>
+                <p class="center">
+                    Free social media coverage & accelerate visibility with Search Engine Optimization.
+                </p>
+
+            </div>
+
+            <div data-role="content" style="padding:5%;" class="center" >
 
                 <fieldset>
 
-                    <div data-role="fieldcontain" data-inline="true" style="width: 100%;">
-                        <label>Enter your site URL <span style="color:red">*</span></label><br/>
-                        <input id="url" name="url" type="text" value="">
+                    <div data-role="fieldcontain" data-inline="true" style="width: 100%;">                        
+                        <input id="url" name="url" class="required greyText" type="text" value="Enter your site URL (required)">
                     </div>
 
                     <div data-role="fieldcontain" data-inline="true" style="width: 100%;">
-                        <label>Email to receive alerts <span style="color:red">*</span></label><br/>
-                        <input id="email" name="email" class="required" type="text" value="">
+
+                        <input id="email" name="email"  class="required greyText" type="text" value="Email to receive alerts (required)">
                     </div>
 
 
                     <br/>
 
-                    <div data-inline="true" style="width: 50%;">
+                    <div data-inline="true" style="width: 58%; padding-left: 21%" >
                         <input type="button" data-role="button" data-theme="b" id="monitorBtn" value="Start Monitoring!" />
                     </div>
 
