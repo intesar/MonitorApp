@@ -1,12 +1,16 @@
 package com.bia.monitor.service;
 
+import com.mongodb.Mongo;
+import com.mongodb.MongoException;
+import java.net.UnknownHostException;
 import java.util.Date;
-import java.util.Set;
-import java.util.UUID;
-import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.List;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.validator.routines.EmailValidator;
+import org.apache.log4j.Logger;
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.MongoTemplate;
 
 /**
  *
@@ -14,29 +18,35 @@ import org.apache.commons.validator.routines.EmailValidator;
  */
 public class MonitorService {
 
-    protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(MonitorService.class);
-    private Set<Job> list;
+    protected static final Logger logger = Logger.getLogger(MonitorService.class);
+    private MongoOperations mongoOps;
     private EmailService emailService;
     private static final MonitorService instance = new MonitorService();
     private ScheduledThreadPoolExecutor executor;
 
     private MonitorService() {
-        list = new ConcurrentSkipListSet<Job>();
-        emailService = EmailService.getInstance();
-        executor = new ScheduledThreadPoolExecutor(10);
-        setUpExecutor();
+        try {
+            mongoOps = new MongoTemplate(new Mongo(), "monitor");
+            emailService = EmailService.getInstance();
+            executor = new ScheduledThreadPoolExecutor(10);
+            setUpExecutor();
+        } catch (UnknownHostException ex) {
+            logger.error(ex);
+        } catch (MongoException ex) {
+            logger.error(ex);
+        }
     }
 
     public String add(String url, String email) {
-        if ( (!isValidEmail(email)) || (url == null || url.trim().length() <= 4)) {
+        if ((!isValidEmail(email)) || (url == null || url.trim().length() <= 4)) {
             return "Invalid data!";
         }
-        
+
         String url_ = url.toLowerCase();
-        if ( !url_.startsWith("http://") && !url_.startsWith("https://")) {
+        if (!url_.startsWith("http://") && !url_.startsWith("https://")) {
             url = "http://" + url;
         }
-        
+
         if (!isValidUrl(url, email)) {
             if (logger.isTraceEnabled()) {
                 logger.trace(url + ", " + email + " is not valid!");
@@ -49,69 +59,15 @@ public class MonitorService {
         if (logger.isTraceEnabled()) {
             logger.trace(url + ", " + email + ", " + id + " is added to the queue!");
         }
-        return "Check email!";
-    }
-
-    /**
-     *
-     * @param emails
-     * @return
-     */
-    private boolean isValidEmail(String email) {
-        if (!EmailValidator.getInstance().isValid(email)) {
-            return false;
-        }
-        return true;
-    }
-
-    private String monitor(String url, String email) {
-        // add 
-        Job job = new Job();
-        job.setUrl(url);
-        job.setEmail(email);
-        UUID uuid = UUID.randomUUID();
-        job.setId(uuid.toString());
-        job.setUpSince(new Date());
-        list.add(job);
-
-        StringBuilder body = new StringBuilder();
-        body.append("Your submitted data! <br/>").append("<p>Url : ").append(url).append("<br/>").append("Email : ").append(email).append("<br/><br/>").append("Free Upcoming Features!").append("<br/>").append("1. Free Site/Web Service Monitor <br/>").append("2. Free Alerts <br/>").append("3. Free weekly reports <br/>").append("4. Free Social Media coverage on Twitter, G+, FB, Pinterest, Blogger, Reddit for 95+ uptime!").append("<br/><br/>").append("If you like this service please refer to your friends --  ").append("http://www.zytoon.me/monitor/ <br/><br/>").append("Important link ... <br/>").append("<a href=\"http://www.zytoon.me/monitor/rest/monitor/status/").append(job.getId()).append("\"> Show me site status </a> <br/>").append(" <a href=\"http://www.zytoon.me/monitor/rest/monitor/delete/").append(job.getId()).append("\" > Stop monitoring my site! </a> ");
-        emailService.sendEmail(email, "Congratulations we are monitoring your site!", body.toString());
-
-        return job.getId();
-    }
-
-    private boolean isValidUrl(String url, String email) {
-        if (isUrlMonitored(url)) {
-            // send email
-            StringBuilder body = new StringBuilder();
-            body.append("<p>").append("This url : ").append(url).append(" is already being monitored we cannot remonitor!  </p>");
-            emailService.sendEmail(email, "Cannot monitor this site!", body.toString());
-            return false;
-        }
-        return true;
-    }
-
-    private boolean isUrlMonitored(String url) {
-        for (Job j : list) {
-            if (j.getUrl().equalsIgnoreCase(url)) {
-                return true;
-            }
-        }
-        return false;
+        return id;
     }
 
     public boolean remove(String id) {
         if (logger.isTraceEnabled()) {
             logger.trace(id + " trying to remove!");
         }
+        List<Job> list = mongoOps.findAll(Job.class);
         for (Job j : list) {
-            if (logger.isTraceEnabled()) {
-                logger.trace(j.getId());
-                logger.trace(id);
-                logger.trace(" where == ? ");
-
-            }
             if (j.getId().equals(id)) {
                 list.remove(j);
                 StringBuilder body = new StringBuilder();
@@ -130,7 +86,7 @@ public class MonitorService {
     }
 
     public String status(String id) {
-
+        List<Job> list = mongoOps.findAll(Job.class);
         for (Job j : list) {
             if (logger.isTraceEnabled()) {
                 logger.trace(j.getId());
@@ -156,6 +112,55 @@ public class MonitorService {
         return instance;
     }
 
+    /**
+     *
+     * @param emails
+     * @return
+     */
+    private boolean isValidEmail(String email) {
+        if (!EmailValidator.getInstance().isValid(email)) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isValidUrl(String url, String email) {
+        if (isUrlMonitored(url)) {
+            // send email
+            StringBuilder body = new StringBuilder();
+            body.append("<p>").append("This url : ").append(url).append(" is already being monitored we cannot remonitor!  </p>");
+            emailService.sendEmail(email, "Cannot monitor this site!", body.toString());
+            return false;
+        }
+        return true;
+    }
+
+    private String monitor(String url, String email) {
+        // add 
+        Job job = new Job();
+        job.setUrl(url);
+        job.setEmail(email);
+        job.setUpSince(new Date());
+
+        mongoOps.insert(job);
+
+        StringBuilder body = new StringBuilder();
+        body.append("Your submitted data! <br/>").append("<p>Url : ").append(url).append("<br/>").append("Email : ").append(email).append("<br/><br/>").append("Free Upcoming Features!").append("<br/>").append("1. Free Site/Web Service Monitor <br/>").append("2. Free Alerts <br/>").append("3. Free weekly reports <br/>").append("4. Free Social Media coverage on Twitter, G+, FB, Pinterest, Blogger, Reddit for 95+ uptime!").append("<br/><br/>").append("If you like this service please refer to your friends --  ").append("http://www.zytoon.me/monitor/ <br/><br/>").append("Important link ... <br/>").append("<a href=\"http://www.zytoon.me/monitor/rest/monitor/status/").append(job.getId()).append("\"> Show me site status </a> <br/>").append(" <a href=\"http://www.zytoon.me/monitor/rest/monitor/delete/").append(job.getId()).append("\" > Stop monitoring my site! </a> ");
+        emailService.sendEmail(email, "Congratulations we are monitoring your site!", body.toString());
+
+        return job.getId();
+    }
+
+    private boolean isUrlMonitored(String url) {
+        List<Job> list = mongoOps.findAll(Job.class);
+        for (Job j : list) {
+            if (j.getUrl().equalsIgnoreCase(url)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     // veify method implementation begin
     private void setUpExecutor() {
         executor.scheduleAtFixedRate(new VerifyMethod(), 0, 5, TimeUnit.MINUTES);
@@ -168,6 +173,7 @@ public class MonitorService {
             if (logger.isTraceEnabled()) {
                 logger.trace(" started timer!");
             }
+            List<Job> list = mongoOps.findAll(Job.class);
             for (Job job : list) {
                 Runnable job_ = new JobCheck(job);
                 executor.schedule(job_, 10, TimeUnit.MILLISECONDS);

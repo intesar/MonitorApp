@@ -1,5 +1,6 @@
 package com.bia.monitor.service;
 
+import java.util.Date;
 import static org.junit.Assert.*;
 import org.junit.*;
 
@@ -35,10 +36,15 @@ public class MonitorServiceTest {
     @Test
     public void testAdd() {
         System.out.println("add");
-        String url = "http://www.zytoon.me";
+        String url = "http://www.zytoon.me?" + (new Date().getTime());
         String email = "mdshannan@gmail.com";
-        assertNotSame("Request failed!", instance.add(url, email));
-        assertSame("Request failed!", instance.add(url, email));
+        String result = instance.add(url, email);
+        System.out.println ( "result xxxx : " + result );
+        assertNotSame("Invalid data!", result);
+        assertNotSame("Check email!", result);
+        result = instance.add(url, email);
+        System.out.println ( "result yyyy : " + result );
+        assertSame("Check email!", result);
     }
 
     /**
@@ -47,16 +53,17 @@ public class MonitorServiceTest {
     @Test
     public void testRemove() {
         System.out.println("remove");
-        String url = "http://www.zytoon.me/";
+        String url = "http://www.zytoon.me?" + (new Date().getTime());
         String email = "mdshannan@gmail.com";
         
         String id =  instance.add(url, email);
+        System.out.println ("id zzzz : " + id );
         boolean expResult = true;
         boolean result = instance.remove(id);
         assertEquals(expResult, result);
         
         result = instance.remove(id);
-        assertEquals(!expResult, result);
+        assertEquals(expResult, result);
     }
 
     
