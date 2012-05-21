@@ -4,6 +4,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
 import org.apache.log4j.Logger;
+import org.springframework.data.mongodb.core.MongoOperations;
 
 /**
  *
@@ -11,10 +12,12 @@ import org.apache.log4j.Logger;
  */
 class JobCheck implements Runnable {
 
+    private MongoOperations mongoOps;
     private Job job;
     protected static Logger logger = Logger.getLogger(JobCheck.class);
 
-    JobCheck(Job job) {
+    JobCheck(MongoOperations mongoOps, Job job) {
+        this.mongoOps = mongoOps;
         this.job = job;
     }
 
@@ -36,6 +39,7 @@ class JobCheck implements Runnable {
                 if (!job.isLastUp()) {
                     job.setLastUp(true);
                     job.setUpSince(new Date());
+                    this.mongoOps.save(job);
                     // send site up notification
                     int mins = (int) ((new Date().getTime() / 60000) - (job.getDownSince().getTime() / 60000));
                     StringBuilder body = new StringBuilder();
@@ -62,6 +66,7 @@ class JobCheck implements Runnable {
             job.setLastUp(false);
             job.setDownSince(new Date());
             job.setStatus("Down");
+            this.mongoOps.save(job);
             // send alert email
             StringBuilder body = new StringBuilder();
             body.append(job.getUrl()).append(" is Down! ");

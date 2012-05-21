@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.523" errors="0" skipped="0" tests="2" name="com.bia.monitor.service.MonitorServiceTest">
+<testsuite failures="0" time="0.631" errors="0" skipped="0" tests="2" name="com.bia.monitor.service.MonitorServiceTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries"/>
@@ -22,7 +22,7 @@
     <property name="basedir" value="/Users/intesar/NetBeansProjects/Monitor"/>
     <property name="java.endorsed.dirs" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/endorsed"/>
     <property name="os.arch" value="x86_64"/>
-    <property name="surefire.real.class.path" value="/Users/intesar/NetBeansProjects/Monitor/target/surefire/surefirebooter4235030406985397013.jar"/>
+    <property name="surefire.real.class.path" value="/Users/intesar/NetBeansProjects/Monitor/target/surefire/surefirebooter1801150430950040320.jar"/>
     <property name="java.io.tmpdir" value="/var/folders/0l/l38fch5j6872y82rzm5yl5q40000gn/T/"/>
     <property name="line.separator" value="
 "/>
@@ -46,7 +46,7 @@
     <property name="java.vm.specification.version" value="1.0"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"/>
-    <property name="sun.java.command" value="/Users/intesar/NetBeansProjects/Monitor/target/surefire/surefirebooter4235030406985397013.jar /Users/intesar/NetBeansProjects/Monitor/target/surefire/surefire1874056694949321012tmp /Users/intesar/NetBeansProjects/Monitor/target/surefire/surefire463670654402900308tmp"/>
+    <property name="sun.java.command" value="/Users/intesar/NetBeansProjects/Monitor/target/surefire/surefirebooter1801150430950040320.jar /Users/intesar/NetBeansProjects/Monitor/target/surefire/surefire869015435980746834tmp /Users/intesar/NetBeansProjects/Monitor/target/surefire/surefire8856351398140394977tmp"/>
     <property name="java.specification.vendor" value="Sun Microsystems Inc."/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="apple.awt.CToolkit"/>
@@ -65,6 +65,6 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0.156" classname="com.bia.monitor.service.MonitorServiceTest" name="testAdd"/>
-  <testcase time="0.049" classname="com.bia.monitor.service.MonitorServiceTest" name="testRemove"/>
+  <testcase time="0.211" classname="com.bia.monitor.service.MonitorServiceTest" name="testAdd"/>
+  <testcase time="0.04" classname="com.bia.monitor.service.MonitorServiceTest" name="testRemove"/>
 </testsuite>

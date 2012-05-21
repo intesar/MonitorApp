@@ -175,7 +175,7 @@ public class MonitorService {
             }
             List<Job> list = mongoOps.findAll(Job.class);
             for (Job job : list) {
-                Runnable job_ = new JobCheck(job);
+                Runnable job_ = new JobCheck(mongoOps, job);
                 executor.schedule(job_, 10, TimeUnit.MILLISECONDS);
             }
         }
