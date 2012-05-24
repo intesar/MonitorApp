@@ -43,12 +43,7 @@ class JobCheck implements Runnable {
                     EmailService.getInstance().sendEmail(job.getEmail(), job.getUrl() + " is Up!", body.toString());
                 }
                 return;
-                
-            } else if (responseCode == 413){
-                //do nothing
-                return;
             }
-            
 
             // < 100 is undertermined.
             // 1nn is informal (shouldn't happen on a GET/HEAD)
