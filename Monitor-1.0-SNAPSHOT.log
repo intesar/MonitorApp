@@ -1561,3 +1561,179 @@ java.lang.NullPointerException
 [Monitor] - 2012-05-13 17:55:38,684 -  -  started timer!
 [Monitor] - 2012-05-13 17:55:38,695 -  -  pinging http://www.zytoon.me/robot
 [Monitor] - 2012-05-13 17:55:39,158 -  -  ping successful http://www.zytoon.me/robot
+[Monitor] - 2012-05-13 17:57:38,464 -  -  started timer!
+[Monitor] - 2012-05-13 17:57:38,472 -  - Sending email..
+[Monitor] - 2012-05-13 17:57:38,484 -  - Sending email..
+[Monitor] - 2012-05-13 17:57:38,554 -  - http://www.zytoon.me, mdshannan@gmail.com, ab45afdb-0d78-442f-89a4-b94e96e08535 is added to the queue!
+[Monitor] - 2012-05-13 17:57:38,617 -  - http://www.zytoon.me, mdshannan@gmail.com is not valid!
+[Monitor] - 2012-05-13 17:57:38,639 -  - http://www.zytoon.me/, mdshannan@gmail.com, bbf4d766-0c87-4376-ad19-ac984fd2bcf1 is added to the queue!
+[Monitor] - 2012-05-13 17:57:38,639 -  - Check email! trying to remove!
+[Monitor] - 2012-05-13 17:57:38,639 -  - ab45afdb-0d78-442f-89a4-b94e96e08535
+[Monitor] - 2012-05-13 17:57:38,639 -  - Check email!
+[Monitor] - 2012-05-13 17:57:38,640 -  -  where == ? 
+[Monitor] - 2012-05-13 17:57:38,640 -  - bbf4d766-0c87-4376-ad19-ac984fd2bcf1
+[Monitor] - 2012-05-13 17:57:38,640 -  - Check email!
+[Monitor] - 2012-05-13 17:57:38,640 -  -  where == ? 
+[Monitor] - 2012-05-20 14:29:10,866 -  -  started timer!
+[Monitor] - 2012-05-20 14:29:10,976 -  - http://www.zytoon.me, mdshannan@gmail.com, 55da37af-80a2-47fb-a311-db821e934914 is added to the queue!
+[Monitor] - 2012-05-20 14:29:10,976 -  - Sending email..
+[Monitor] - 2012-05-20 14:29:10,976 -  - http://www.zytoon.me, mdshannan@gmail.com is not valid!
+[Monitor] - 2012-05-20 14:29:10,978 -  - Sending email..
+[Monitor] - 2012-05-20 14:29:11,065 -  - http://www.zytoon.me/, mdshannan@gmail.com, 90fc74cb-4eb6-4e6d-b1d3-de5d4bead77a is added to the queue!
+[Monitor] - 2012-05-20 14:29:11,066 -  - Check email! trying to remove!
+[Monitor] - 2012-05-20 14:29:11,066 -  - 55da37af-80a2-47fb-a311-db821e934914
+[Monitor] - 2012-05-20 14:29:11,066 -  - Check email!
+[Monitor] - 2012-05-20 14:29:11,066 -  -  where == ? 
+[Monitor] - 2012-05-20 14:29:11,066 -  - 90fc74cb-4eb6-4e6d-b1d3-de5d4bead77a
+[Monitor] - 2012-05-20 14:29:11,066 -  - Check email!
+[Monitor] - 2012-05-20 14:29:11,066 -  -  where == ? 
+[Monitor] - 2012-05-20 19:38:32,208 -  - Sending email..
+[Monitor] - 2012-05-20 19:38:32,209 -  - Sending email..
+[Monitor] - 2012-05-20 19:38:32,486 -  -  started timer!
+[Monitor] - 2012-05-20 19:38:32,591 -  - http://www.zytoon.me, mdshannan@gmail.com, 4fb9aaa80364aadfa76758a7 is added to the queue!
+[Monitor] - 2012-05-20 19:38:34,098 -  - http://www.zytoon.me, mdshannan@gmail.com is not valid!
+[Monitor] - 2012-05-20 19:38:34,106 -  - http://www.zytoon.me/, mdshannan@gmail.com, 4fb9aaaa0364aadfa76758a8 is added to the queue!
+[Monitor] - 2012-05-20 19:38:34,106 -  - Check email! trying to remove!
+[Monitor] - 2012-05-20 19:38:34,107 -  - 4fb9aaa80364aadfa76758a7
+[Monitor] - 2012-05-20 19:38:34,107 -  - Check email!
+[Monitor] - 2012-05-20 19:38:34,107 -  -  where == ? 
+[Monitor] - 2012-05-20 19:38:34,107 -  - 4fb9aaaa0364aadfa76758a8
+[Monitor] - 2012-05-20 19:38:34,107 -  - Check email!
+[Monitor] - 2012-05-20 19:38:34,108 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,484 -  - Sending email..
+[Monitor] - 2012-05-20 19:59:52,501 -  - Sending email..
+[Monitor] - 2012-05-20 19:59:52,733 -  -  started timer!
+[Monitor] - 2012-05-20 19:59:52,863 -  - http://www.zytoon.me?1337569192735, mdshannan@gmail.com, 4fb9afa803647d3e7bd8cff3 is added to the queue!
+[Monitor] - 2012-05-20 19:59:52,871 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-20 19:59:52,874 -  - http://www.zytoon.me?1337569192867, mdshannan@gmail.com, 4fb9afa803647d3e7bd8cff4 is added to the queue!
+[Monitor] - 2012-05-20 19:59:52,874 -  - 4fb9afa803647d3e7bd8cff4 trying to remove!
+[Monitor] - 2012-05-20 19:59:52,876 -  -  pinging http://www.zytoon.me/
+[Monitor] - 2012-05-20 19:59:52,876 -  -  pinging http://www.zytoon.me?test
+[Monitor] - 2012-05-20 19:59:52,877 -  -  pinging http://www.zytoon.me?1337568237721
+[Monitor] - 2012-05-20 19:59:52,877 -  -  pinging http://www.zytoon.me?1337568353650
+[Monitor] - 2012-05-20 19:59:52,878 -  -  pinging http://www.zytoon.me?1337568387620
+[Monitor] - 2012-05-20 19:59:52,878 -  -  pinging http://www.zytoon.me?1337568448096
+[Monitor] - 2012-05-20 19:59:52,887 -  - 4fb9aaa80364aadfa76758a7
+[Monitor] - 2012-05-20 19:59:52,887 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,887 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,887 -  - 4fb9aaaa0364aadfa76758a8
+[Monitor] - 2012-05-20 19:59:52,887 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,888 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,888 -  - 4fb9aba503649b880c6ed861
+[Monitor] - 2012-05-20 19:59:52,888 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,888 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,888 -  - 4fb9abed03644a42dbd2aed1
+[Monitor] - 2012-05-20 19:59:52,888 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,888 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,889 -  - 4fb9ac6103648a568cba5f37
+[Monitor] - 2012-05-20 19:59:52,889 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,889 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,889 -  - 4fb9ac830364a2ed2b4d2f50
+[Monitor] - 2012-05-20 19:59:52,897 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,897 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,897 -  - 4fb9acc003640887739f3826
+[Monitor] - 2012-05-20 19:59:52,897 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,897 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,902 -  - 4fb9acfe0364cc0b7d5d4298
+[Monitor] - 2012-05-20 19:59:52,903 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,903 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,903 -  - 4fb9acfe0364cc0b7d5d4299
+[Monitor] - 2012-05-20 19:59:52,903 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,903 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,903 -  - 4fb9ad5303646e59892faa0d
+[Monitor] - 2012-05-20 19:59:52,903 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,903 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,904 -  - 4fb9ad5303646e59892faa0e
+[Monitor] - 2012-05-20 19:59:52,904 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,904 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,904 -  - 4fb9afa803647d3e7bd8cff3
+[Monitor] - 2012-05-20 19:59:52,904 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,904 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,904 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,904 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,904 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,905 -  - 4fb9afa803647d3e7bd8cff4 is removed!
+[Monitor] - 2012-05-20 19:59:52,905 -  - 4fb9afa803647d3e7bd8cff4 trying to remove!
+[Monitor] - 2012-05-20 19:59:52,890 -  -  pinging http://www.zytoon.me?1337568595124
+[Monitor] - 2012-05-20 19:59:52,889 -  -  pinging http://www.zytoon.me?1337568510483
+[Monitor] - 2012-05-20 19:59:52,889 -  -  pinging http://www.zytoon.me?1337568510317
+[Monitor] - 2012-05-20 19:59:52,912 -  - 4fb9aaa80364aadfa76758a7
+[Monitor] - 2012-05-20 19:59:52,912 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,912 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,913 -  - 4fb9aaaa0364aadfa76758a8
+[Monitor] - 2012-05-20 19:59:52,913 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,913 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,913 -  - 4fb9aba503649b880c6ed861
+[Monitor] - 2012-05-20 19:59:52,913 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,944 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,944 -  - 4fb9abed03644a42dbd2aed1
+[Monitor] - 2012-05-20 19:59:52,944 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,944 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,944 -  - 4fb9ac6103648a568cba5f37
+[Monitor] - 2012-05-20 19:59:52,944 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,945 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,945 -  - 4fb9ac830364a2ed2b4d2f50
+[Monitor] - 2012-05-20 19:59:52,945 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,945 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,945 -  - 4fb9acc003640887739f3826
+[Monitor] - 2012-05-20 19:59:52,945 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,945 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,945 -  - 4fb9acfe0364cc0b7d5d4298
+[Monitor] - 2012-05-20 19:59:52,945 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,945 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,945 -  - 4fb9acfe0364cc0b7d5d4299
+[Monitor] - 2012-05-20 19:59:52,945 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,945 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,945 -  - 4fb9ad5303646e59892faa0d
+[Monitor] - 2012-05-20 19:59:52,945 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,945 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,945 -  - 4fb9ad5303646e59892faa0e
+[Monitor] - 2012-05-20 19:59:52,945 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,945 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,946 -  - 4fb9afa803647d3e7bd8cff3
+[Monitor] - 2012-05-20 19:59:52,958 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,958 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,958 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,958 -  - 4fb9afa803647d3e7bd8cff4
+[Monitor] - 2012-05-20 19:59:52,959 -  -  where == ? 
+[Monitor] - 2012-05-20 19:59:52,959 -  - 4fb9afa803647d3e7bd8cff4 is removed!
+[Monitor] - 2012-05-20 20:10:28,551 -  - Sending email..
+[Monitor] - 2012-05-20 20:10:28,558 -  - Sending email..
+[Monitor] - 2012-05-20 20:10:28,755 -  -  started timer!
+[Monitor] - 2012-05-20 20:10:28,894 -  - http://www.zytoon.me?1337569828756, mdshannan@gmail.com, 4fb9b2240364ce9a1afcbf9e is added to the queue!
+[Monitor] - 2012-05-20 20:10:28,898 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-20 20:10:28,905 -  -  pinging http://www.zytoon.me/
+[Monitor] - 2012-05-20 20:10:28,905 -  -  pinging http://www.zytoon.me?test
+[Monitor] - 2012-05-20 20:10:28,905 -  - http://www.zytoon.me?1337569828756, mdshannan@gmail.com is not valid!
+[Monitor] - 2012-05-20 20:10:28,906 -  -  pinging http://www.zytoon.me?1337568510317
+[Monitor] - 2012-05-20 20:10:28,906 -  -  pinging http://www.zytoon.me?1337568510483
+[Monitor] - 2012-05-20 20:10:28,906 -  -  pinging http://www.zytoon.me?1337568595124
+[Monitor] - 2012-05-20 20:10:28,906 -  -  pinging http://www.zytoon.me?1337568448096
+[Monitor] - 2012-05-20 20:10:28,906 -  -  pinging http://www.zytoon.me?1337568387620
+[Monitor] - 2012-05-20 20:10:28,906 -  -  pinging http://www.zytoon.me?1337568353650
+[Monitor] - 2012-05-20 20:10:28,905 -  -  pinging http://www.zytoon.me?1337568237721
+[Monitor] - 2012-05-20 20:10:28,926 -  - http://www.zytoon.me?1337569828911, mdshannan@gmail.com, 4fb9b2240364ce9a1afcbf9f is added to the queue!
+[Monitor] - 2012-05-20 20:10:28,930 -  - 4fb9b2240364ce9a1afcbf9f trying to remove!
+[Monitor] - 2012-05-20 20:10:28,946 -  - 4fb9b2240364ce9a1afcbf9f is removed!
+[Monitor] - 2012-05-20 20:10:28,946 -  - 4fb9b2240364ce9a1afcbf9f trying to remove!
+[Monitor] - 2012-05-20 20:10:28,959 -  - 4fb9b2240364ce9a1afcbf9f is removed!
+[Monitor] - 2012-05-20 21:13:17,376 -  - Sending email..
+[Monitor] - 2012-05-20 21:13:17,377 -  - Sending email..
+[Monitor] - 2012-05-20 21:13:17,728 -  -  started timer!
+[Monitor] - 2012-05-20 21:13:17,906 -  - http://www.zytoon.me?1337573597729, mdshannan@gmail.com, 4fb9c0dd036448919c84d652 is added to the queue!
+[Monitor] - 2012-05-20 21:13:17,910 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-20 21:13:17,916 -  -  pinging http://www.zytoon.me/
+[Monitor] - 2012-05-20 21:13:17,917 -  -  pinging http://www.zytoon.me?test
+[Monitor] - 2012-05-20 21:13:17,918 -  -  pinging http://www.zytoon.me?1337568237721
+[Monitor] - 2012-05-20 21:13:17,918 -  -  pinging http://www.zytoon.me?1337568353650
+[Monitor] - 2012-05-20 21:13:17,918 -  -  pinging http://www.zytoon.me?1337568387620
+[Monitor] - 2012-05-20 21:13:17,918 -  -  pinging http://www.zytoon.me?1337568510483
+[Monitor] - 2012-05-20 21:13:17,918 -  -  pinging http://www.zytoon.me?1337568510317
+[Monitor] - 2012-05-20 21:13:17,918 -  -  pinging http://www.zytoon.me?1337568448096
+[Monitor] - 2012-05-20 21:13:17,928 -  -  pinging http://www.zytoon.me?1337568595124
+[Monitor] - 2012-05-20 21:13:17,937 -  - http://www.zytoon.me?1337573597729, mdshannan@gmail.com is not valid!
+[Monitor] - 2012-05-20 21:13:17,963 -  - http://www.zytoon.me?1337573597950, mdshannan@gmail.com, 4fb9c0dd036448919c84d653 is added to the queue!
+[Monitor] - 2012-05-20 21:13:17,964 -  - 4fb9c0dd036448919c84d653 trying to remove!
+[Monitor] - 2012-05-20 21:13:17,976 -  - 4fb9c0dd036448919c84d653 is removed!
+[Monitor] - 2012-05-20 21:13:17,976 -  - 4fb9c0dd036448919c84d653 trying to remove!
+[Monitor] - 2012-05-20 21:13:17,990 -  - 4fb9c0dd036448919c84d653 is removed!

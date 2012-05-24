@@ -25,7 +25,12 @@ public class MonitorRest {
             logger.trace("url : " + url + ", email : " + email);
         }
 
-        return service.add(url, email);
+        String key = service.add(url, email);
+        if (key.equals("Invalid data!") || key.equals("Check email!")) {
+            return key;
+        } else {
+            return "Check email!";
+        }
         //return "Please check your email!";
     }
 
@@ -45,7 +50,7 @@ public class MonitorRest {
             return "Cannot find your site in active list!";
         }
     }
-    
+
     // curl -i -X GET http://localhost:8080/rest/monitor/status/34343
     //http://localhost:8080/rest/monitor/status/123
     @GET
