@@ -35,16 +35,27 @@ class JobCheck implements Runnable {
         String responseCodeStr = getStatus();
         int responseCode = getIntegerVal(responseCodeStr);
         if (responseCode == 200) {
+            if (logger.isTraceEnabled()) {
+                logger.trace(" ping successful " + job.getUrl());
+            }
             // site is up
             handleSiteUp();
 
         } else if (responseCode == 413) {
+            if (logger.isTraceEnabled()) {
+                logger.trace(" ping in filter code " + job.getUrl() + " response code : " + responseCodeStr);
+            }
             //do nothing
             // all other non-action codes will come here
             notifyAdmin(responseCodeStr);
         } else {
 
             handleSiteDown(responseCodeStr);
+
+            if (logger.isTraceEnabled()) {
+                int mins = (int) ((new Date().getTime() / 60000) - (job.getDownSince().getTime() / 60000));
+                logger.trace(" ping failed " + job.getUrl() + " response code : " + responseCodeStr + " Down since : " + mins);
+            }
         }
 
     }
@@ -84,9 +95,7 @@ class JobCheck implements Runnable {
 
     private void handleSiteUp() {
         // OK.
-        if (logger.isTraceEnabled()) {
-            logger.trace(" ping successful " + job.getUrl());
-        }
+
 
         //job.setStatus("Running");
 
@@ -113,6 +122,9 @@ class JobCheck implements Runnable {
     }
 
     private void handleSiteDown(String responseCodeStr) {
+        if (logger.isTraceEnabled()) {
+            logger.trace(" ping failed " + job.getUrl() + " status code : " + responseCodeStr);
+        }
         // only send mail for the first time
         if (job.isLastUp()) {
             job.setLastUp(false);
@@ -127,20 +139,15 @@ class JobCheck implements Runnable {
         // send alert email
         Date time = new Date();
         StringBuilder body = new StringBuilder();
-        body.append(job.getUrl()).append(" is Down! ")
-                .append("<br/>Response Code : ").append(responseCodeStr)
-                .append("<br/>Detection Time: ").append(time);
+        body.append(job.getUrl()).append(" is Down! ").append("<br/>Response Code : ").append(responseCodeStr).append("<br/>Detection Time: ").append(time);
         EmailService.getInstance().sendEmail(job.getEmail(), job.getUrl() + " is Down!", "Detected down on : " + time);
     }
-    
+
     private void notifyAdmin(String responseCodeStr) {
         // send alert email
         Date time = new Date();
         StringBuilder body = new StringBuilder();
-        body.append(job.getUrl()).append(" is Down! ")
-                .append("<br/>Response Code : ").append(responseCodeStr)
-                .append("<br/>Detection Time : ").append(time)
-                .append("<br/>Owner : ").append(job.getEmail());
+        body.append(job.getUrl()).append(" is Down! ").append("<br/>Response Code : ").append(responseCodeStr).append("<br/>Detection Time : ").append(time).append("<br/>Owner : ").append(job.getEmail());
         EmailService.getInstance().sendEmail("mdshannan@gmail.com", job.getUrl() + " is Down!", "Detected down on : " + time);
     }
 }
