@@ -1,5 +1,6 @@
 package com.bia.monitor.service;
 
+
 import com.mongodb.Mongo;
 import com.mongodb.MongoException;
 import java.net.UnknownHostException;
@@ -11,6 +12,8 @@ import org.apache.commons.validator.routines.EmailValidator;
 import org.apache.log4j.Logger;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import static org.springframework.data.mongodb.core.query.Criteria.where;
+import static org.springframework.data.mongodb.core.query.Query.query;
 
 /**
  *
@@ -163,17 +166,29 @@ public class MonitorService {
 
     // veify method implementation begin
     private void setUpExecutor() {
-        executor.scheduleAtFixedRate(new VerifyMethod(), 0, 5, TimeUnit.MINUTES);
+        
+        executor.scheduleAtFixedRate(new VerifyMethod(false), 0, 5, TimeUnit.MINUTES);
+        // one minute check for only down sites
+        executor.scheduleAtFixedRate(new VerifyMethod(true), 0, 1, TimeUnit.MINUTES);
     }
 
     // this object will executed every 5 mins
     private class VerifyMethod implements Runnable {
-
+        private boolean checkDown;
+        VerifyMethod (boolean checkDown) {
+            this.checkDown = checkDown;
+        }
         public void run() {
             if (logger.isTraceEnabled()) {
                 logger.trace(" started timer!");
             }
-            List<Job> list = mongoOps.findAll(Job.class);
+            List<Job> list = null;
+            if (checkDown ) {
+                list = mongoOps.find(query(where("lastUp").is(Boolean.FALSE)),Job.class);
+                //list = mongoOps.findAll(Job.class);
+            } else {
+                list = mongoOps.find(query(where("lastUp").is(Boolean.TRUE)),Job.class);
+            }
             for (Job job : list) {
                 Runnable job_ = new JobCheck(mongoOps, job);
                 executor.schedule(job_, 10, TimeUnit.MILLISECONDS);

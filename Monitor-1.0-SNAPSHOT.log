@@ -1740,3 +1740,26 @@ java.lang.NullPointerException
 [Monitor] - 2012-05-26 18:22:20,172 -  - Sending email..
 [Monitor] - 2012-05-26 18:22:20,176 -  - Sending email..
 [Monitor] - 2012-05-26 18:22:20,730 -  -  started timer!
+[Monitor] - 2012-05-27 16:40:31,219 -  -  started timer!
+[Monitor] - 2012-05-27 16:40:31,220 -  -  started timer!
+[Monitor] - 2012-05-27 16:42:15,859 -  -  started timer!
+[Monitor] - 2012-05-27 16:42:15,859 -  -  started timer!
+[Monitor] - 2012-05-27 16:42:17,795 -  - http://www.zytoon.me?1338162135861, mdshannan@gmail.com, 4fc2bbd90364c7b926ec741f is added to the queue!
+[Monitor] - 2012-05-27 16:42:17,799 -  -  pinging http://www.zytoon.me
+[Monitor] - 2012-05-27 16:42:17,804 -  -  pinging http://www.zytoon.me/
+[Monitor] - 2012-05-27 16:42:17,804 -  -  pinging http://www.zytoon.me?test
+[Monitor] - 2012-05-27 16:42:17,804 -  -  pinging http://www.zytoon.me?1337568237721
+[Monitor] - 2012-05-27 16:42:17,805 -  -  pinging http://www.zytoon.me?1337568353650
+[Monitor] - 2012-05-27 16:42:17,805 -  -  pinging http://www.zytoon.me?1337568387620
+[Monitor] - 2012-05-27 16:42:17,805 -  -  pinging http://www.zytoon.me?1337568448096
+[Monitor] - 2012-05-27 16:42:17,805 -  -  pinging http://www.zytoon.me?1337568510317
+[Monitor] - 2012-05-27 16:42:17,805 -  -  pinging http://www.zytoon.me?1337568510483
+[Monitor] - 2012-05-27 16:42:17,805 -  -  pinging http://www.zytoon.me?1337568595124
+[Monitor] - 2012-05-27 16:42:18,070 -  - http://www.zytoon.me?1338162135861, mdshannan@gmail.com is not valid!
+[Monitor] - 2012-05-27 16:42:18,181 -  - Sending email..
+[Monitor] - 2012-05-27 16:42:18,184 -  - http://www.zytoon.me?1338162138166, mdshannan@gmail.com, 4fc2bbda0364c7b926ec7420 is added to the queue!
+[Monitor] - 2012-05-27 16:42:18,184 -  - 4fc2bbda0364c7b926ec7420 trying to remove!
+[Monitor] - 2012-05-27 16:42:18,194 -  - Sending email..
+[Monitor] - 2012-05-27 16:42:18,197 -  - 4fc2bbda0364c7b926ec7420 is removed!
+[Monitor] - 2012-05-27 16:42:18,198 -  - 4fc2bbda0364c7b926ec7420 trying to remove!
+[Monitor] - 2012-05-27 16:42:18,211 -  - 4fc2bbda0364c7b926ec7420 is removed!
