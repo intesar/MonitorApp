@@ -35,7 +35,7 @@ public class EmailService {
     // just set the username / password
     // example@gmail.com or example@zytoon.me
     private String USERNAME = "team@zytoon.me";
-    private String PASSWORD = "";
+    private String PASSWORD = "Teamu123$";
     private String EMAIL_CONTENT_TYPE = "text/html";
     private String SMTP_HOST_NAME = "smtp.gmail.com";
     private String SMTP_PORT = "465";

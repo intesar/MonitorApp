@@ -1737,3 +1737,6 @@ java.lang.NullPointerException
 [Monitor] - 2012-05-20 21:13:17,976 -  - 4fb9c0dd036448919c84d653 is removed!
 [Monitor] - 2012-05-20 21:13:17,976 -  - 4fb9c0dd036448919c84d653 trying to remove!
 [Monitor] - 2012-05-20 21:13:17,990 -  - 4fb9c0dd036448919c84d653 is removed!
+[Monitor] - 2012-05-26 18:22:20,172 -  - Sending email..
+[Monitor] - 2012-05-26 18:22:20,176 -  - Sending email..
+[Monitor] - 2012-05-26 18:22:20,730 -  -  started timer!
