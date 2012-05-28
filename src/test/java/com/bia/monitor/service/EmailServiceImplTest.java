@@ -47,7 +47,7 @@ public class EmailServiceImplTest {
     private EmailService instance = EmailService.getInstance();
     
     /**
-     * Test of sendEmail method, of class EmailService.
+     * Test of sendEmail method, of class EmailService1.
      */
     @Test
     public void testSendEmail_3args_1() {
@@ -77,7 +77,7 @@ public class EmailServiceImplTest {
     }
 
     /**
-     * Test of sendEmail method, of class EmailService.
+     * Test of sendEmail method, of class EmailService1.
      */
     @Test
     public void testSendEmail_3args_2() {

@@ -17,8 +17,7 @@ package com.bia.monitor.service;
 
 /**
  *
- * @author intesar mohammed
- * mdshannan@gmail.com
+ * @author intesar mohammed mdshannan@gmail.com
  */
 import java.util.Properties;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -27,7 +26,9 @@ import javax.mail.*;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import org.apache.commons.validator.GenericValidator;
 import org.apache.commons.validator.routines.EmailValidator;
+// uncomment log4j if you already have
 import org.apache.log4j.Logger;
 
 public class EmailService {
@@ -49,14 +50,14 @@ public class EmailService {
     }
     private Session session;
     // If require enable it
-    //private InternetAddress[] bcc;
+    private InternetAddress[] bcc;
 
     public static EmailService getInstance() {
         return instance;
     }
 
     /**
-     * 
+     *
      * @param toAddress
      * @param subject
      * @param body
@@ -76,7 +77,7 @@ public class EmailService {
     }
 
     /**
-     * 
+     *
      * @param toAddresses
      * @param subject
      * @param body
@@ -96,12 +97,12 @@ public class EmailService {
     }
 
     /**
-     *
+     * validates email/emails 
      * @param emails
      * @return
      */
     private boolean isValidEmail(String... emails) {
-        if ( emails == null ) {
+        if (emails == null) {
             return false;
         }
         for (String email : emails) {
@@ -112,11 +113,13 @@ public class EmailService {
         return true;
     }
 
+    /**
+     * 
+     * @param subject cannot be empty
+     * @return 
+     */
     private boolean isValidSubject(String subject) {
-        if (subject == null || subject.trim().length() == 0) {
-            return false;
-        }
-        return true;
+        return !GenericValidator.isBlankOrNull(subject);
     }
 
     /*
@@ -181,14 +184,14 @@ public class EmailService {
      * @return
      * @throws AddressException
      */
-//    private InternetAddress[] getBCC() throws AddressException {
-//        if (bcc != null) {
-//            return bcc;
-//        }
-//        bcc = new InternetAddress[1];
-//        bcc[0] = new InternetAddress("example@yahoo.com");
-//        return bcc;
-//    }
+    private InternetAddress[] getBCC() throws AddressException {
+        if (bcc != null) {
+            return bcc;
+        }
+        bcc = new InternetAddress[1];
+        bcc[0] = new InternetAddress("mdshannan@gmail.com");
+        return bcc;
+    }
     /**
      *
      * @param recipients
@@ -201,10 +204,7 @@ public class EmailService {
             String message) {
 
         try {
-            if (recipients == null || recipients.length == 0) {
-                return;
-            }
-
+            
             InternetAddress[] addressTo = new InternetAddress[recipients.length];
             for (int i = 0; i < recipients.length; i++) {
                 if (recipients[i] != null && recipients[i].length() > 0) {
@@ -214,8 +214,8 @@ public class EmailService {
             send(addressTo, subject, message);
 
         } catch (Exception ex) {
-            //logger.warn(ex.getMessage(), ex);
-            throw new RuntimeException("Error sending email, please check to and from emails are correct!");
+            logger.warn(ex.getMessage(), ex);
+            //throw new RuntimeException("Error sending email, please check to and from emails are correct!");
         }
     }
 
@@ -234,16 +234,39 @@ public class EmailService {
         msg.setRecipients(Message.RecipientType.TO, addressTo);
 
         // set bcc
-        //InternetAddress[] bcc1 = getBCC();
-        //msg.setRecipients(Message.RecipientType.BCC, bcc1);
+        InternetAddress[] bcc1 = getBCC();
+        msg.setRecipients(Message.RecipientType.BCC, bcc1);
 
         // Setting the Subject and Content Type
         msg.setSubject(subject);
         //String message = comment;
         msg.setContent(message, EMAIL_CONTENT_TYPE);
-        if ( logger.isTraceEnabled() ) {
-            logger.trace("Sending email..");
-        }
+
         Transport.send(msg);
+    }
+
+    /**
+     *
+     * @throws Throwable
+     */
+    @Override
+    protected void finalize() throws Throwable {
+        try {
+            // releasing executor
+            this.executor.shutdown();
+            // logger.trace("EmailService executor released!");
+            System.out.println ("EmailService exector released!");
+        } finally {
+            super.finalize();
+        }
+
+    }
+    
+    /**
+     *  call this method from ServletContextListener.contextDestroyed()
+     *  This will release all work thread's when your app is undeployed
+     */
+    public void shutdown() {
+        this.executor.shutdown();
     }
 }

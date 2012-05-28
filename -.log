@@ -758,3 +758,91 @@
 [] - 2012-05-20 20:05:03,129 -  - 4fb9b0de03640084af718c92
 [] - 2012-05-20 20:05:03,129 -  -  where == ? 
 [] - 2012-05-20 20:05:03,130 -  - 4fb9b0de03640084af718c92 is removed!
+[] - 2012-05-28 00:22:13,053 -  -  started timer!
+[] - 2012-05-28 00:22:13,054 -  -  started timer!
+[] - 2012-05-28 00:22:15,841 -  - http://www.zytoon.me?1338189733054, mdshannan@gmail.com, 4fc327a703643a8f26246048 is added to the queue!
+[] - 2012-05-28 00:22:16,220 -  -  pinging http://www.zytoon.me
+[] - 2012-05-28 00:22:16,224 -  -  pinging http://www.zytoon.me/
+[] - 2012-05-28 00:22:16,234 -  -  pinging http://www.zytoon.me?test
+[] - 2012-05-28 00:22:16,236 -  -  pinging http://www.zytoon.me?1337568237721
+[] - 2012-05-28 00:22:16,236 -  -  pinging http://www.zytoon.me?1337568353650
+[] - 2012-05-28 00:22:16,236 -  -  pinging http://www.zytoon.me?1337568387620
+[] - 2012-05-28 00:22:16,236 -  -  pinging http://www.zytoon.me?1337568448096
+[] - 2012-05-28 00:22:16,236 -  -  pinging http://www.zytoon.me?1337568510317
+[] - 2012-05-28 00:22:16,236 -  -  pinging http://www.zytoon.me?1337568510483
+[] - 2012-05-28 00:22:16,237 -  -  pinging http://www.zytoon.me?1337568595124
+[] - 2012-05-28 00:22:17,271 -  -  ping failed http://www.zytoon.me?1337568510483 status code : 400
+[] - 2012-05-28 00:22:17,272 -  -  ping failed http://www.zytoon.me?1337568510317 status code : 400
+[] - 2012-05-28 00:22:17,337 -  -  ping successful http://www.zytoon.me
+[] - 2012-05-28 00:22:17,338 -  -  pinging http://www.zytoon.me?1337568595284
+[] - 2012-05-28 00:22:17,338 -  -  ping failed http://www.zytoon.me?1337568448096 status code : 400
+[] - 2012-05-28 00:22:17,339 -  -  ping failed http://www.zytoon.me?1337568353650 status code : 400
+[] - 2012-05-28 00:22:17,342 -  -  ping successful http://www.zytoon.me/
+[] - 2012-05-28 00:22:17,342 -  -  pinging http://www.zytoon.me?1337569192735
+[] - 2012-05-28 00:22:17,342 -  -  ping failed http://www.zytoon.me?1337568595124 status code : 400
+[] - 2012-05-28 00:22:17,342 -  -  ping failed http://www.zytoon.me?1337568237721 status code : 400
+[] - 2012-05-28 00:22:17,343 -  -  ping failed http://www.zytoon.me?1337568387620 status code : 400
+[] - 2012-05-28 00:22:17,343 -  -  ping failed http://www.zytoon.me?test status code : 400
+[] - 2012-05-28 00:22:17,571 -  -  ping failed http://www.zytoon.me?1337568353650 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:17,571 -  -  pinging http://www.zytoon.me?1337569192867
+[] - 2012-05-28 00:22:17,572 -  -  ping failed http://www.zytoon.me?1337569192735 status code : 400
+[] - 2012-05-28 00:22:17,574 -  -  ping failed http://www.zytoon.me?1337568595284 status code : 400
+[] - 2012-05-28 00:22:17,580 -  -  ping failed http://www.zytoon.me?1337568510317 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:17,580 -  -  pinging http://www.zytoon.me?1337569273761
+[] - 2012-05-28 00:22:17,581 -  -  ping failed http://www.zytoon.me?1337568387620 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:17,581 -  -  pinging http://www.zytoon.me?1337569273898
+[] - 2012-05-28 00:22:17,581 -  -  ping failed http://www.zytoon.me?1337568595124 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:17,581 -  -  pinging http://www.zytoon.me?1337569381424
+[] - 2012-05-28 00:22:17,582 -  -  ping failed http://www.zytoon.me?test response code : 400 Down since : 0
+[] - 2012-05-28 00:22:17,582 -  -  pinging http://www.zytoon.me?1337569381632
+[] - 2012-05-28 00:22:17,583 -  -  ping failed http://www.zytoon.me?1337568237721 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:17,583 -  -  ping failed http://www.zytoon.me?1337568448096 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:17,583 -  -  pinging http://www.zytoon.me?1337569437750
+[] - 2012-05-28 00:22:17,583 -  -  ping failed http://www.zytoon.me?1337568510483 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:17,585 -  -  pinging http://www.zytoon.me?1337569502783
+[] - 2012-05-28 00:22:17,585 -  -  ping failed http://www.zytoon.me?1337569192735 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:17,585 -  -  pinging http://www.zytoon.me?1337569502980
+[] - 2012-05-28 00:22:17,583 -  -  pinging http://www.zytoon.me?1337569437872
+[] - 2012-05-28 00:22:17,601 -  - http://www.zytoon.me?1338189733054, mdshannan@gmail.com is not valid!
+[] - 2012-05-28 00:22:17,603 -  -  ping failed http://www.zytoon.me?1337568595284 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:17,604 -  -  pinging http://www.zytoon.me?1337569828756
+[] - 2012-05-28 00:22:17,772 -  -  ping failed http://www.zytoon.me?1337569192867 status code : 400
+[] - 2012-05-28 00:22:17,776 -  -  ping failed http://www.zytoon.me?1337569192867 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:17,776 -  -  pinging http://www.zytoon.me?1337569828911
+[] - 2012-05-28 00:22:17,795 -  -  ping failed http://www.zytoon.me?1337569273761 status code : 400
+[] - 2012-05-28 00:22:17,797 -  -  ping failed http://www.zytoon.me?1337569273761 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:17,797 -  -  pinging http://www.zytoon.me?1337573597729
+[] - 2012-05-28 00:22:17,797 -  -  ping failed http://www.zytoon.me?1337569273898 status code : 400
+[] - 2012-05-28 00:22:17,809 -  -  ping failed http://www.zytoon.me?1337569502783 status code : 400
+[] - 2012-05-28 00:22:17,811 -  -  ping failed http://www.zytoon.me?1337569381632 status code : 400
+[] - 2012-05-28 00:22:17,813 -  -  ping failed http://www.zytoon.me?1337569381632 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:17,813 -  -  pinging http://www.zytoon.me?1337573597950
+[] - 2012-05-28 00:22:17,817 -  -  ping failed http://www.zytoon.me?1337569437750 status code : 400
+[] - 2012-05-28 00:22:17,819 -  -  ping failed http://www.zytoon.me?1337569437750 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:17,819 -  -  pinging http://www.zytoon.me?1338162135861
+[] - 2012-05-28 00:22:17,820 -  -  ping failed http://www.zytoon.me?1337569502980 status code : 400
+[] - 2012-05-28 00:22:17,823 -  -  ping failed http://www.zytoon.me?1337569437872 status code : 400
+[] - 2012-05-28 00:22:17,825 -  -  ping failed http://www.zytoon.me?1337569381424 status code : 400
+[] - 2012-05-28 00:22:17,831 -  -  ping failed http://www.zytoon.me?1337569273898 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:17,831 -  -  pinging http://www.zytoon.me?1338162138166
+[] - 2012-05-28 00:22:17,839 -  -  ping failed http://www.zytoon.me?1337569828756 status code : 400
+[] - 2012-05-28 00:22:17,956 -  -  ping failed http://www.zytoon.me?1337569828756 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:17,956 -  -  ping failed http://www.zytoon.me?1337569502783 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:17,994 -  -  ping failed http://www.zytoon.me?1337569828911 status code : 400
+[] - 2012-05-28 00:22:17,995 -  -  ping failed http://www.zytoon.me?1337569828911 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:18,012 -  -  ping failed http://www.zytoon.me?1337573597729 status code : 400
+[] - 2012-05-28 00:22:18,014 -  -  ping failed http://www.zytoon.me?1337573597729 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:18,015 -  -  ping failed http://www.zytoon.me?1337569381424 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:18,018 -  -  ping failed http://www.zytoon.me?1337573597950 status code : 400
+[] - 2012-05-28 00:22:18,021 -  -  ping failed http://www.zytoon.me?1337573597950 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:18,051 -  -  ping failed http://www.zytoon.me?1337569437872 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:18,052 -  -  ping failed http://www.zytoon.me?1337569502980 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:18,066 -  -  ping failed http://www.zytoon.me?1338162138166 status code : 400
+[] - 2012-05-28 00:22:18,067 -  -  ping failed http://www.zytoon.me?1338162138166 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:18,068 -  -  ping failed http://www.zytoon.me?1338162135861 status code : 400
+[] - 2012-05-28 00:22:18,069 -  -  ping failed http://www.zytoon.me?1338162135861 response code : 400 Down since : 0
+[] - 2012-05-28 00:22:18,134 -  - http://www.zytoon.me?1338189738051, mdshannan@gmail.com, 4fc327aa03643a8f26246049 is added to the queue!
+[] - 2012-05-28 00:22:18,135 -  - 4fc327aa03643a8f26246049 trying to remove!
+[] - 2012-05-28 00:22:18,146 -  - 4fc327aa03643a8f26246049 is removed!
+[] - 2012-05-28 00:22:18,146 -  - 4fc327aa03643a8f26246049 trying to remove!
+[] - 2012-05-28 00:22:18,159 -  - 4fc327aa03643a8f26246049 is removed!
