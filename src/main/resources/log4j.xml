@@ -79,7 +79,7 @@
     </logger>
 
     <root>
-        <priority value="warn" />
+        <priority value="trace" />
         <appender-ref ref="Console" />
         <appender-ref ref="File" />
     </root>
