@@ -61,7 +61,7 @@ class JobCheck implements Runnable {
     }
 
     private String getStatus() {
-        String responseCode = null;
+        String responseCode;
         try {
             if (logger.isTraceEnabled()) {
                 logger.trace(" pinging " + job.getUrl());
@@ -139,8 +139,8 @@ class JobCheck implements Runnable {
         // send alert email
         Date time = new Date();
         StringBuilder body = new StringBuilder();
-        body.append(job.getUrl()).append(" is Down! ").append("<br/>Response Code : ").append(responseCodeStr).append("<br/>Detection Time: ").append(time);
-        EmailService.getInstance().sendEmail(job.getEmail(), job.getUrl() + " is Down!", "Detected down on : " + time);
+        body.append(job.getUrl()).append(" <br/> Status : Down! ").append("<br/>Response Code : ").append(responseCodeStr).append("<br/>Detection Time: ").append(time);
+        EmailService.getInstance().sendEmail(job.getEmail(), job.getUrl() + " is Down!", body.toString());
     }
 
     private void notifyAdmin(String responseCodeStr) {

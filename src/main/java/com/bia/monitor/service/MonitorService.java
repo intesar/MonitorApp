@@ -196,4 +196,8 @@ public class MonitorService {
         }
     }
     // veify method end
+    
+    public void shutdown() {
+        this.executor.shutdown();
+    }
 }
