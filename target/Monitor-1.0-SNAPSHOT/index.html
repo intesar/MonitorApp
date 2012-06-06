@@ -1,4 +1,3 @@
-
 <!DOCTYPE html> 
 <html>     
     <head> 
@@ -51,7 +50,7 @@
                     
                     var call = $.ajax({
                         type: 'POST',
-                        url: 'http://www.zytoon.me/monitor/rest/monitor/', //http://www.zytoon.me/monitor/rest/monitor/
+                        url: 'http://www.zytoon.me/monitor/rest/monitor/', //http://localhost:8080/rest/monitor/ 
                         contentType: 'application/json',
                         data: {url:$("#url").val(), email:$("#email").val()},
                         dataType: 'json',

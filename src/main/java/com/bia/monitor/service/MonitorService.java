@@ -1,6 +1,6 @@
 package com.bia.monitor.service;
 
-
+import com.bia.monitor.data.Job;
 import com.mongodb.Mongo;
 import com.mongodb.MongoException;
 import java.net.UnknownHostException;
@@ -166,28 +166,36 @@ public class MonitorService {
 
     // veify method implementation begin
     private void setUpExecutor() {
-        
+        // prod
         executor.scheduleAtFixedRate(new VerifyMethod(false), 0, 5, TimeUnit.MINUTES);
         // one minute check for only down sites
         executor.scheduleAtFixedRate(new VerifyMethod(true), 0, 1, TimeUnit.MINUTES);
+
+        // dev env
+//        executor.scheduleAtFixedRate(new VerifyMethod(false), 0, 20, TimeUnit.SECONDS);
+//        executor.scheduleAtFixedRate(new VerifyMethod(true), 0, 10, TimeUnit.SECONDS);
     }
 
     // this object will executed every 5 mins
     private class VerifyMethod implements Runnable {
+
         private boolean checkDown;
-        VerifyMethod (boolean checkDown) {
+
+        VerifyMethod(boolean checkDown) {
             this.checkDown = checkDown;
         }
+
+        @Override
         public void run() {
             if (logger.isTraceEnabled()) {
                 logger.trace(" started timer!");
             }
-            List<Job> list = null;
-            if (checkDown ) {
-                list = mongoOps.find(query(where("lastUp").is(Boolean.FALSE)),Job.class);
+            List<Job> list;
+            if (checkDown) {
+                list = mongoOps.find(query(where("lastUp").is(Boolean.FALSE)), Job.class);
                 //list = mongoOps.findAll(Job.class);
             } else {
-                list = mongoOps.find(query(where("lastUp").is(Boolean.TRUE)),Job.class);
+                list = mongoOps.find(query(where("lastUp").is(Boolean.TRUE)), Job.class);
             }
             for (Job job : list) {
                 Runnable job_ = new JobCheck(mongoOps, job);
@@ -196,7 +204,7 @@ public class MonitorService {
         }
     }
     // veify method end
-    
+
     public void shutdown() {
         this.executor.shutdown();
     }

@@ -1,5 +1,7 @@
 package com.bia.monitor.service;
 
+import com.bia.monitor.data.Job;
+import com.bia.monitor.data.JobDown;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
@@ -7,6 +9,8 @@ import java.net.URL;
 import java.util.Date;
 import org.apache.log4j.Logger;
 import org.springframework.data.mongodb.core.MongoOperations;
+import static org.springframework.data.mongodb.core.query.Criteria.where;
+import static org.springframework.data.mongodb.core.query.Query.query;
 
 /**
  *
@@ -29,6 +33,7 @@ class JobCheck implements Runnable {
     // 3nn is redirect
     // 4nn is client error
     // 5nn is server error
+    @Override
     public void run() {
 
         // check status
@@ -94,22 +99,31 @@ class JobCheck implements Runnable {
     }
 
     private void handleSiteUp() {
-        // OK.
+        
+        // handle only if site was down earlier
 
-
-        //job.setStatus("Running");
-
-        handleIfLastDown();
-    }
-
-    private void handleIfLastDown() {
         if (!job.isLastUp()) {
-            job.setLastUp(true);
-            job.setUpSince(new Date());
-            this.mongoOps.save(job);
+
+            updateJobOnSiteUp();
+
+            updateJobDownOnSiteUp();
 
             sendUpNotify();
         }
+    }
+    
+
+    private void updateJobDownOnSiteUp() {
+        JobDown jobDown = this.mongoOps.findOne(query(where("job_id").is(job.getId())).addCriteria(where("active").is(Boolean.TRUE)), JobDown.class);
+        jobDown.setDownTill(new Date());
+        jobDown.setActive(Boolean.FALSE);
+        this.mongoOps.save(jobDown);
+    }
+
+    private void updateJobOnSiteUp() {
+        job.setLastUp(true);
+        job.setUpSince(new Date());
+        this.mongoOps.save(job);
     }
 
     private void sendUpNotify() {
@@ -127,12 +141,25 @@ class JobCheck implements Runnable {
         }
         // only send mail for the first time
         if (job.isLastUp()) {
-            job.setLastUp(false);
-            job.setDownSince(new Date());
-            job.setStatus("Down");
-            this.mongoOps.save(job);
+
+            updateJobOnSiteDown();
+
+            updateJobDownOnSiteDown();
+
             sendDownNotify(responseCodeStr);
         }
+    }
+
+    private void updateJobOnSiteDown() {
+        job.setLastUp(false);
+        job.setDownSince(new Date());
+        job.setStatus("Down");
+        this.mongoOps.save(job);
+    }
+
+    private void updateJobDownOnSiteDown() {
+        JobDown jobDown = new JobDown(job.getId(), Boolean.TRUE, new Date());
+        this.mongoOps.save(jobDown);
     }
 
     private void sendDownNotify(String responseCodeStr) {

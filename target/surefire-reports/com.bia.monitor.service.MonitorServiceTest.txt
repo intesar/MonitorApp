@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.bia.monitor.service.MonitorServiceTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.784 sec
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.56 sec
