@@ -11,17 +11,17 @@
 
     <appender name="Console" class="org.apache.log4j.ConsoleAppender">
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="[Monitor] - %d{ISO8601} - %X{login} - %m%n" />
+            <param name="ConversionPattern" value="%d{ABSOLUTE} %5p %40.40c:%4L - %m%n" />
         </layout>
     </appender>
 
     <appender name="File" class="org.apache.log4j.RollingFileAppender">
-        <param name="File" value="Monitor-1.0-SNAPSHOT.log" />
+        <param name="File" value="${project.name}-${project.version}.log" />
         <param name="MaxFileSize" value="1000KB" />
         <param name="MaxBackupIndex" value="20" />
 
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="[Monitor] - %d{ISO8601} - %X{login} - %m%n" />
+            <param name="ConversionPattern" value="%d{ABSOLUTE} %5p %40.40c:%4L - %m%n" />
         </layout>
     </appender>
 
@@ -30,12 +30,8 @@
         <level value="trace" />
     </logger>
 
-	<!-- JSF Phase listener (debug purpose) -->
-	<!-- <logger name="org.springframework.faces.support.RequestLoggingPhaseListener"> -->
-	<!-- <level value="${log4j.level}" /> -->
-	<!-- </logger> -->
-
-	<!-- TRANSACTION -->
+	
+    <!-- TRANSACTION -->
     <logger name="org.springframework.transaction">
         <level value="warn" />
     </logger>
@@ -43,7 +39,7 @@
         <level value="warn" />
     </logger>
 
-	<!-- HIBERNATE & CACHE SPECIFIC -->
+    <!-- HIBERNATE & CACHE SPECIFIC -->
     <logger name="org.hibernate.cache.EhCacheProvider">
         <level value="error" />
     </logger>
@@ -52,19 +48,15 @@
         <level value="warn" />
     </logger>
 
-	<!-- Log Hibernate SQL queries to file (log level must be DEBUG to enable it) -->
+    <!-- Log Hibernate SQL queries to file (log level must be DEBUG to enable it) -->
     <logger name="org.hibernate.SQL" additivity="false">
         <level value="debug" />
         <appender-ref ref="File" />
     </logger>
 
-	<!-- log the param value in the prepared statement and the query result! (log level must be TRACE to enable it) -->
-	<!--<logger name="org.hibernate.type"> -->
-	<!--<level value="trace" /> -->
-	<!-- <appender-ref ref="File"/> -->
-	<!--</logger> -->
+	
 
-	<!-- OTHER OPEN SOURCE PACKAGES -->
+    <!-- OTHER OPEN SOURCE PACKAGES -->
     <logger name="org.springframework.security">
         <level value="warn" />
     </logger>
@@ -77,9 +69,13 @@
     <logger name="org.springframework.beans.factory.support">
         <level value="warn" />
     </logger>
+    
+    <logger name="org.springframework.data.mongodb">
+        <level value="debug" />
+    </logger>
 
     <root>
-        <priority value="trace" />
+        <priority value="debug" />
         <appender-ref ref="Console" />
         <appender-ref ref="File" />
     </root>

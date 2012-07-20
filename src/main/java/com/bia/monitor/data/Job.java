@@ -1,6 +1,8 @@
 package com.bia.monitor.data;
 
 import java.util.Date;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 /**
  *
@@ -11,17 +13,19 @@ public class Job implements Comparable {
 
     private String id;
     private String url;
-    private String email;
+    private Set<String> email = new LinkedHashSet<String>();
     private String status = "NA";
     private boolean lastUp = true;
     private Date upSince;
     private Date downSince;
+    
+    public Job() {}
 
-    public String getEmail() {
+    public Set<String> getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(Set<String> email) {
         this.email = email;
     }
 

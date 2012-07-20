@@ -16,6 +16,7 @@
         <application.host>localhost</application.host>
         <application.port>8080</application.port>
         <application.contextpath>/</application.contextpath>
+        <spring.framework.version>3.0.6.RELEASE</spring.framework.version>
     </properties>
 
     <dependencies>

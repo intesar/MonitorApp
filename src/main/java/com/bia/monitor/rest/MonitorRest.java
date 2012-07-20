@@ -38,13 +38,13 @@ public class MonitorRest {
     // curl -i -X GET http://localhost:8080/rest/monitor/delete/34343
     //http://localhost:8080/rest/monitor/delete/123
     @GET
-    @Path("/delete/{id}")
+    @Path("/delete/{id}/{email}")
     @Produces({MediaType.APPLICATION_JSON})
-    public String delete(@PathParam("id") String id) {
+    public String delete(@PathParam("id") String id, @PathParam("email") String email) {
         if (logger.isTraceEnabled()) {
             logger.trace("delete id : " + id);
         }
-        if (service.remove(id)) {
+        if (service.remove(id, email)) {
             return "Removed your site from monitoring!";
         } else {
             return "Cannot find your site in active list!";

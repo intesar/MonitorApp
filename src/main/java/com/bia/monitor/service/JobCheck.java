@@ -131,8 +131,10 @@ class JobCheck implements Runnable {
         int mins = (int) ((new Date().getTime() / 60000) - (job.getDownSince().getTime() / 60000));
         StringBuilder body = new StringBuilder();
         body.append(job.getUrl()).append(" is Up after ").append(mins).append(" mins of downtime!");
-
-        EmailService.getInstance().sendEmail(job.getEmail(), job.getUrl() + " is Up!", body.toString());
+        
+        for (String email : job.getEmail()) {
+            EmailService.getInstance().sendEmail(email, job.getUrl() + " is Up!", body.toString());
+        }
     }
 
     private void handleSiteDown(String responseCodeStr) {
@@ -167,7 +169,9 @@ class JobCheck implements Runnable {
         Date time = new Date();
         StringBuilder body = new StringBuilder();
         body.append(job.getUrl()).append(" <br/> Status : Down! ").append("<br/>Response Code : ").append(responseCodeStr).append("<br/>Detection Time: ").append(time);
-        EmailService.getInstance().sendEmail(job.getEmail(), job.getUrl() + " is Down!", body.toString());
+        for (String email : job.getEmail()) {
+            EmailService.getInstance().sendEmail(email, job.getUrl() + " is Down!", body.toString());
+        }
     }
 
     private void notifyAdmin(String responseCodeStr) {
