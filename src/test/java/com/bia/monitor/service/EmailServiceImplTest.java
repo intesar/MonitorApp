@@ -16,13 +16,14 @@
 
 package com.bia.monitor.service;
 
-import static org.junit.Assert.assertEquals;
 import org.junit.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  *
  * @author intesar
  */
+@Ignore
 public class EmailServiceImplTest {
 
     public EmailServiceImplTest() {
@@ -44,7 +45,7 @@ public class EmailServiceImplTest {
     public void tearDown() {
     }
 
-    private EmailService instance = EmailService.getInstance();
+    private EmailService instance = new EmailService();
     
     /**
      * Test of sendEmail method, of class EmailService1.

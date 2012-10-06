@@ -64,7 +64,7 @@
         <level value="warn" />
     </logger>
     <logger name="org.springframework">
-        <level value="warn" />
+        <level value="debug" />
     </logger>
     <logger name="org.springframework.beans.factory.support">
         <level value="warn" />

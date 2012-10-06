@@ -8,6 +8,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.util.Date;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
@@ -18,9 +19,13 @@ import static org.springframework.data.mongodb.core.query.Query.query;
  */
 class JobCheck implements Runnable {
 
+    protected static Logger logger = Logger.getLogger(JobCheck.class);
+    
     private MongoOperations mongoOps;
     private Job job;
-    protected static Logger logger = Logger.getLogger(JobCheck.class);
+    
+    @Autowired
+    private EmailService emailService;
 
     JobCheck(MongoOperations mongoOps, Job job) {
         this.mongoOps = mongoOps;
@@ -133,7 +138,7 @@ class JobCheck implements Runnable {
         body.append(job.getUrl()).append(" is Up after ").append(mins).append(" mins of downtime!");
         
         for (String email : job.getEmail()) {
-            EmailService.getInstance().sendEmail(email, job.getUrl() + " is Up!", body.toString());
+            emailService.sendEmail(email, job.getUrl() + " is Up!", body.toString());
         }
     }
 
@@ -170,7 +175,7 @@ class JobCheck implements Runnable {
         StringBuilder body = new StringBuilder();
         body.append(job.getUrl()).append(" <br/> Status : Down! ").append("<br/>Response Code : ").append(responseCodeStr).append("<br/>Detection Time: ").append(time);
         for (String email : job.getEmail()) {
-            EmailService.getInstance().sendEmail(email, job.getUrl() + " is Down!", body.toString());
+            emailService.sendEmail(email, job.getUrl() + " is Down!", body.toString());
         }
     }
 
@@ -179,6 +184,6 @@ class JobCheck implements Runnable {
         Date time = new Date();
         StringBuilder body = new StringBuilder();
         body.append(job.getUrl()).append(" is Down! ").append("<br/>Response Code : ").append(responseCodeStr).append("<br/>Detection Time : ").append(time).append("<br/>Owner : ").append(job.getEmail());
-        EmailService.getInstance().sendEmail("mdshannan@gmail.com", job.getUrl() + " is Down!", "Detected down on : " + time);
+        emailService.sendEmail("mdshannan@gmail.com", job.getUrl() + " is Down!", "Detected down on : " + time);
     }
 }

@@ -50,7 +50,8 @@
                     
                     var call = $.ajax({
                         type: 'POST',
-                        url: 'http://localhost:8080/rest/monitor/', //'http://www.zytoon.me/monitor/rest/monitor/',  
+                        url: 'http://localhost:8080/rest/monitor/', // dev 
+                        //url : 'http://www.zytoon.me/monitor/rest/monitor/',   // prod
                         contentType: 'application/json',
                         data: {url:$("#url").val(), email:$("#email").val()},
                         dataType: 'json',

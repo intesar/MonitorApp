@@ -22,17 +22,20 @@ package com.bia.monitor.service;
 import java.util.Properties;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import javax.annotation.PreDestroy;
 import javax.mail.*;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import org.apache.commons.validator.GenericValidator;
 import org.apache.commons.validator.routines.EmailValidator;
-// uncomment log4j if you already have
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
 
+@Service
 public class EmailService {
 
+    protected static Logger logger = Logger.getLogger(EmailService.class);
     // just set the username / password
     // example@gmail.com or example@zytoon.me
     private String USERNAME = "team@zytoon.me";
@@ -41,20 +44,18 @@ public class EmailService {
     private String SMTP_HOST_NAME = "smtp.gmail.com";
     private String SMTP_PORT = "465";
     private String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
-    private static Logger logger = Logger.getLogger(EmailService.class);
-    private static final EmailService instance = new EmailService();
     private ScheduledThreadPoolExecutor executor;
 
-    private EmailService() {
+    public EmailService() {
         executor = new ScheduledThreadPoolExecutor(2);
     }
     private Session session;
     // If require enable it
     private InternetAddress[] bcc;
 
-    public static EmailService getInstance() {
-        return instance;
-    }
+//    public static EmailService getInstance() {
+//        return instance;
+//    }
 
     /**
      *
@@ -140,6 +141,7 @@ public class EmailService {
             this.message = message;
         }
 
+        @Override
         public void run() {
             EmailService.this.sendSSMessage(recipients, subject, message);
         }
@@ -266,6 +268,7 @@ public class EmailService {
      *  call this method from ServletContextListener.contextDestroyed()
      *  This will release all work thread's when your app is undeployed
      */
+    @PreDestroy
     public void shutdown() {
         this.executor.shutdown();
     }

@@ -1,43 +1,35 @@
 package com.bia.monitor.service;
 
+import com.bia.monitor.dao.Dao;
 import com.bia.monitor.data.Job;
-import com.mongodb.Mongo;
-import com.mongodb.MongoException;
-import java.net.UnknownHostException;
 import java.util.Date;
-import java.util.List;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.apache.log4j.Logger;
-import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author intesar
  */
+@Component
 public class MonitorService {
 
     protected static final Logger logger = Logger.getLogger(MonitorService.class);
-    private MongoOperations mongoTemplate;
+    @Autowired
+    private Dao dao;
+    @Autowired
     private EmailService emailService;
-    private static final MonitorService instance = new MonitorService();
-    private ScheduledThreadPoolExecutor executor;
+    //private static final MonitorService instance = new MonitorService();
 
-    private MonitorService() {
-        try {
-            mongoTemplate = new MongoTemplate(new Mongo(), "monitor");
-            emailService = EmailService.getInstance();
-            executor = new ScheduledThreadPoolExecutor(10);
-            setUpExecutor();
-        } catch (UnknownHostException ex) {
-            logger.error(ex.getMessage(), ex);
-        } catch (MongoException ex) {
-            logger.error(ex.getMessage(), ex);
+    public MonitorService() {
+
+        if (logger.isTraceEnabled()) {
+            logger.trace("instantiated!");
         }
+
     }
 
     /**
@@ -74,13 +66,13 @@ public class MonitorService {
             logger.trace(id + " trying to remove!");
         }
 
-        Job j = mongoTemplate.findById(id, Job.class);
+        Job j = dao.getMongoTemplate().findById(id, Job.class);
 
         if (j.getEmail().size() > 1) {
             j.getEmail().remove(email);
-            this.mongoTemplate.save(j);
+            this.dao.getMongoTemplate().save(j);
         } else {
-            this.mongoTemplate.remove(j);
+            this.dao.getMongoTemplate().remove(j);
             if (logger.isTraceEnabled()) {
                 logger.trace(id + " is removed!");
             }
@@ -100,7 +92,7 @@ public class MonitorService {
      * @return
      */
     public String status(String id) {
-        Job j = mongoTemplate.findById(id, Job.class);
+        Job j = dao.getMongoTemplate().findById(id, Job.class);
         if (j != null) {
 
             int mins = (int) ((new Date().getTime() / 60000) - (j.getUpSince().getTime() / 60000));
@@ -115,10 +107,9 @@ public class MonitorService {
         return "No data found, please add your site at http://www.zytoon.me/monitor";
     }
 
-    public static MonitorService getInstance() {
-        return instance;
-    }
-
+//    public static MonitorService getInstance() {
+//        return instance;
+//    }
     /**
      *
      * @param emails
@@ -136,20 +127,20 @@ public class MonitorService {
         Job job = null;
 
         try {
-            job = mongoTemplate.findOne(query(where("url").is(url)), Job.class);
+            job = dao.getMongoTemplate().findOne(query(where("url").is(url)), Job.class);
         } catch (RuntimeException re) {
         }
 
         // add 
         if (job != null) {
             job.getEmail().add(email);
-            mongoTemplate.save(job);
+            dao.getMongoTemplate().save(job);
         } else {
             job = new Job();
             job.setUrl(url);
             job.getEmail().add(email);
             job.setUpSince(new Date());
-            mongoTemplate.insert(job);
+            dao.getMongoTemplate().insert(job);
         }
 
 
@@ -171,50 +162,5 @@ public class MonitorService {
         emailService.sendEmail(email, "Congratulations we are monitoring your site!", body.toString());
 
         return job.getId();
-    }
-
-    // veify method implementation begin
-    private void setUpExecutor() {
-        // prod
-        //executor.scheduleAtFixedRate(new VerifyMethod(false), 0, 5, TimeUnit.MINUTES);
-        // one minute check for only down sites
-        //executor.scheduleAtFixedRate(new VerifyMethod(true), 0, 1, TimeUnit.MINUTES);
-
-        // dev env
-        executor.scheduleAtFixedRate(new VerifyMethod(false), 0, 20, TimeUnit.SECONDS);
-        executor.scheduleAtFixedRate(new VerifyMethod(true), 0, 10, TimeUnit.SECONDS);
-    }
-
-    // this object will executed every 5 mins
-    private class VerifyMethod implements Runnable {
-
-        private boolean checkDown;
-
-        VerifyMethod(boolean checkDown) {
-            this.checkDown = checkDown;
-        }
-
-        @Override
-        public void run() {
-            if (logger.isTraceEnabled()) {
-                logger.trace(" started timer!");
-            }
-            List<Job> list;
-            if (checkDown) {
-                list = mongoTemplate.find(query(where("lastUp").is(Boolean.FALSE)), Job.class);
-                //list = mongoOps.findAll(Job.class);
-            } else {
-                list = mongoTemplate.find(query(where("lastUp").is(Boolean.TRUE)), Job.class);
-            }
-            for (Job job : list) {
-                Runnable job_ = new JobCheck(mongoTemplate, job);
-                executor.schedule(job_, 10, TimeUnit.MILLISECONDS);
-            }
-        }
-    }
-    // veify method end
-
-    public void shutdown() {
-        this.executor.shutdown();
     }
 }

@@ -8,14 +8,27 @@ import com.bia.monitor.service.MonitorService;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 // The Java class will be hosted at the URI path "/rest/monitor"
+@Component
 @Path("/monitor")
 public class MonitorRest {
+    
+    
 
     protected static Logger logger = Logger.getLogger(MonitorRest.class);
-    private MonitorService service = MonitorService.getInstance();
+    
+    @Autowired
+    protected MonitorService service;
 
+    public MonitorRest() {
+        if ( logger.isTraceEnabled() ) {
+            logger.trace("instantiated!");
+        }
+    }
+    
     // curl -i -X POST -H 'Content-Type: application/json' -d 'url=http://www.google.com&email=intesar@ymail.com' http://localhost:8080/rest/monitor/
     @POST
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED})

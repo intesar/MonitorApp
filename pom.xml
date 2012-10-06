@@ -16,11 +16,11 @@
         <application.host>localhost</application.host>
         <application.port>8080</application.port>
         <application.contextpath>/</application.contextpath>
-        <spring.framework.version>3.0.6.RELEASE</spring.framework.version>
+        <spring.framework.version>3.1.2.RELEASE</spring.framework.version>
     </properties>
 
     <dependencies>
-         <!-- mail -->
+        <!-- mail -->
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
@@ -119,6 +119,22 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>3.2.0.M1</version>
+        </dependency> 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>3.2.0.M1</version>
+        </dependency>
+ 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>3.2.0.M1</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-mongodb</artifactId>
             <version>1.0.0.M5</version>
@@ -127,9 +143,9 @@
 
     <build>
         <defaultGoal>jetty:run</defaultGoal>
-		<!-- the processing of ressources is done in two steps -->
+        <!-- the processing of ressources is done in two steps -->
         <resources>
-			<!-- step 1: copy all properties, and replace all ${something} with their corresponding values defined in the properties -->
+            <!-- step 1: copy all properties, and replace all ${something} with their corresponding values defined in the properties -->
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
@@ -159,12 +175,12 @@
                 </configuration>
             </plugin>
             <plugin>
-				<!-- http://wiki.eclipse.org/Jetty/Feature/Jetty_Maven_Plugin -->
+                <!-- http://wiki.eclipse.org/Jetty/Feature/Jetty_Maven_Plugin -->
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>maven-jetty-plugin</artifactId>
                 <version>${jetty.version}</version>
                 <configuration>
-					<!-- Configure the webapp -->
+                    <!-- Configure the webapp -->
                     <contextPath>${application.contextpath}</contextPath>
                     <connectors>
                         <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">

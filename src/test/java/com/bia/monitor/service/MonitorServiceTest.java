@@ -1,13 +1,14 @@
 package com.bia.monitor.service;
 
 import java.util.Date;
-import static org.junit.Assert.*;
 import org.junit.*;
+import static org.junit.Assert.*;
 
 /**
  *
  * @author intesar
  */
+@Ignore
 public class MonitorServiceTest {
     
     public MonitorServiceTest() {
@@ -21,7 +22,7 @@ public class MonitorServiceTest {
     public static void tearDownClass() throws Exception {
     }
     
-    MonitorService instance = MonitorService.getInstance();
+    MonitorService instance = new MonitorService();
     @Before
     public void setUp() {
     }
