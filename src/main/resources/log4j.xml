@@ -27,7 +27,7 @@
 
 	
     <logger name="com.bia.monitor">
-        <level value="trace" />
+        <level value="info" />
     </logger>
 
 	
@@ -75,7 +75,7 @@
     </logger>
 
     <root>
-        <priority value="debug" />
+        <priority value="info" />
         <appender-ref ref="Console" />
         <appender-ref ref="File" />
     </root>

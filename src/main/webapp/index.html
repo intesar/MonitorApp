@@ -50,8 +50,8 @@
                     
                     var call = $.ajax({
                         type: 'POST',
-                        url: 'http://localhost:8080/rest/monitor/', // dev 
-                        //url : 'http://www.zytoon.me/monitor/rest/monitor/',   // prod
+                        //url: 'http://localhost:8080/Monitor/rest/monitor/', // dev 
+                        url : 'http://www.zytoon.me/monitor/rest/monitor/',   // prod
                         contentType: 'application/json',
                         data: {url:$("#url").val(), email:$("#email").val()},
                         dataType: 'json',
@@ -60,7 +60,7 @@
                             alert(reply);
                         }
                     })
-                    alert("Please check your email!")
+                    alert("Monitoring site, Please check your email for details message!")
                     $("#url").val("");
                     $("#email").val("");
                 })                

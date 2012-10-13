@@ -1,8 +1,8 @@
 package com.bia.monitor.rest;
 
 /**
- *
- * @author intesar
+ * REST endpoint for UI access
+ * @author Intesar Mohammed
  */
 import com.bia.monitor.service.MonitorService;
 import javax.ws.rs.*;
@@ -16,17 +16,15 @@ import org.springframework.stereotype.Component;
 @Path("/monitor")
 public class MonitorRest {
     
-    
-
     protected static Logger logger = Logger.getLogger(MonitorRest.class);
     
     @Autowired
     protected MonitorService service;
 
     public MonitorRest() {
-        if ( logger.isTraceEnabled() ) {
-            logger.trace("instantiated!");
-        }
+        
+        logger.info("instantiated!");
+        
     }
     
     // curl -i -X POST -H 'Content-Type: application/json' -d 'url=http://www.google.com&email=intesar@ymail.com' http://localhost:8080/rest/monitor/
@@ -34,9 +32,8 @@ public class MonitorRest {
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED})
     @Produces({MediaType.APPLICATION_JSON})
     public String post(@FormParam("url") String url, @FormParam("email") String email) {
-        if (logger.isTraceEnabled()) {
-            logger.trace("url : " + url + ", email : " + email);
-        }
+        
+    	logger.info("Monitor add request for url=" + url + " from email=" + email);
 
         String key = service.add(url, email);
         if (key.equals("Invalid data!") || key.equals("Check email!")) {
@@ -54,10 +51,10 @@ public class MonitorRest {
     @Path("/delete/{id}/{email}")
     @Produces({MediaType.APPLICATION_JSON})
     public String delete(@PathParam("id") String id, @PathParam("email") String email) {
-        if (logger.isTraceEnabled()) {
-            logger.trace("delete id : " + id);
-        }
-        if (service.remove(id, email)) {
+    	
+    	logger.info("Monitor delete request for id=" + id + " from email=" + email);
+        
+    	if (service.remove(id, email)) {
             return "Removed your site from monitoring!";
         } else {
             return "Cannot find your site in active list!";
@@ -70,9 +67,9 @@ public class MonitorRest {
     @Path("/status/{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public String status(@PathParam("id") String id) {
-        if (logger.isTraceEnabled()) {
-            logger.trace("status id : " + id);
-        }
+        
+    	logger.info("Monitor online status request for id=" + id);
+    	
         return service.status(id);
     }
 }

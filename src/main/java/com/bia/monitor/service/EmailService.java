@@ -30,9 +30,8 @@ import javax.mail.internet.MimeMessage;
 import org.apache.commons.validator.GenericValidator;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Service;
 
-@Service
+//@Service
 public class EmailService {
 
     protected static Logger logger = Logger.getLogger(EmailService.class);
@@ -46,16 +45,17 @@ public class EmailService {
     private String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
     private ScheduledThreadPoolExecutor executor;
 
-    public EmailService() {
+    private EmailService() {
         executor = new ScheduledThreadPoolExecutor(2);
     }
     private Session session;
     // If require enable it
     private InternetAddress[] bcc;
 
-//    public static EmailService getInstance() {
-//        return instance;
-//    }
+    private static final EmailService instance = new EmailService();
+    public static EmailService getInstance() {
+        return instance;
+    }
 
     /**
      *
@@ -190,8 +190,9 @@ public class EmailService {
         if (bcc != null) {
             return bcc;
         }
-        bcc = new InternetAddress[1];
+        bcc = new InternetAddress[2];
         bcc[0] = new InternetAddress("mdshannan@gmail.com");
+        bcc[1] = new InternetAddress("atefahmed@gmail.com");
         return bcc;
     }
     /**
@@ -230,6 +231,7 @@ public class EmailService {
      * @throws MessagingException
      */
     private void send(InternetAddress[] addressTo, String subject, String message) throws AddressException, MessagingException {
+        logger.info("sending email..");
         Message msg = new MimeMessage(createSession());
         InternetAddress addressFrom = new InternetAddress(USERNAME);
         msg.setFrom(addressFrom);
@@ -256,7 +258,6 @@ public class EmailService {
         try {
             // releasing executor
             this.executor.shutdown();
-            // logger.trace("EmailService executor released!");
             System.out.println ("EmailService exector released!");
         } finally {
             super.finalize();

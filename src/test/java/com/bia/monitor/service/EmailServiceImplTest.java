@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
 
 /**
  *
- * @author intesar
+ * @author Intesar Mohammed
  */
 @Ignore
 public class EmailServiceImplTest {
@@ -45,7 +45,7 @@ public class EmailServiceImplTest {
     public void tearDown() {
     }
 
-    private EmailService instance = new EmailService();
+    private EmailService instance = EmailService.getInstance();
     
     /**
      * Test of sendEmail method, of class EmailService1.
