@@ -34,7 +34,7 @@ public class Scheduler {
 
 	protected static final Logger logger = Logger.getLogger(Scheduler.class);
     
-	static final int UP_CHECK_INTERVAL = 2; 
+	static final int UP_CHECK_INTERVAL = 15; 
 	static final int DOWN_CHECK_INTERVAL = 1;
         static final int WEEKLY_INTERVAL = 7;
         static final int MAX_THREADS = 5;
