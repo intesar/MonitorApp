@@ -93,8 +93,10 @@ public class Scheduler {
 	                logger_.info("checking " + (list != null ? list.size() : 0 ) + " up sites!");
 	            }
 	            for (Job job : list) {
-	                Runnable job_ = new JobCheck(genericDao_.getMongoTemplate(), job);
-	                executor.schedule(job_, 10, TimeUnit.MILLISECONDS);
+                        if ( job.getEmail() != null && !job.getEmail().isEmpty() ) {
+                            Runnable job_ = new JobCheck(genericDao_.getMongoTemplate(), job);
+                            executor.schedule(job_, 10, TimeUnit.MILLISECONDS);
+                        }
 	            }
             } catch (Exception e) {
             	logger_.error(e.getMessage(), e);
