@@ -19,7 +19,7 @@ package com.bia.monitor.data;
 import java.util.Date;
 
 /**
- * Each instance holds information about website down and duration
+ * Each instance holds information about website down date along with duration
  * @author Intesar Mohammed
  */
 public class JobDown implements Comparable<JobDown> {
