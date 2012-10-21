@@ -38,6 +38,18 @@ public class Job implements Comparable<Job> {
     
     public Job() {}
 
+    public Job(String id, String url, Set<String> email, String status, boolean lastUp, boolean notified, Date upSince, Date downSince) {
+        this.id = id;
+        this.url = url;
+        this.email = email;
+        this.status = status;
+        this.lastUp = lastUp;
+        this.notified = notified;
+        this.upSince = upSince;
+        this.downSince = downSince;
+    }
+    
+
     public Set<String> getEmail() {
         return email;
     }

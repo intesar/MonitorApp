@@ -45,7 +45,7 @@ public class EmailServiceImplTest {
     public void tearDown() {
     }
 
-    private EmailService instance = EmailService.getInstance();
+    private EmailService instance = new EmailService();
     
     /**
      * Test of sendEmail method, of class EmailService1.

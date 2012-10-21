@@ -13,44 +13,47 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.bia.monitor.service.task;
 
-package com.bia.monitor.service;
-
+import com.bia.monitor.dao.JobDownRepository;
+import com.bia.monitor.dao.JobRepository;
 import com.bia.monitor.data.Job;
 import com.bia.monitor.data.JobDown;
+import com.bia.monitor.data.JobStatus;
+import com.bia.monitor.service.EmailService;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.util.Date;
 import org.apache.log4j.Logger;
-import org.springframework.data.mongodb.core.MongoOperations;
-import static org.springframework.data.mongodb.core.query.Criteria.where;
-import static org.springframework.data.mongodb.core.query.Query.query;
 
 /**
  * Runnable checks status of url and alerts emails if down
+ *
  * @author Intesar Mohammed
  */
-class JobCheck implements Runnable {
+public class JobCheck implements Runnable {
 
     protected static Logger logger = Logger.getLogger(JobCheck.class);
-    private MongoOperations mongoOps;
     private Job job;
-    //@Autowired
-    private EmailService emailService = EmailService.getInstance();
+    private EmailService emailService;
+    private JobRepository jobRepository;
+    private JobDownRepository jobDownRepository;
 
-    JobCheck(MongoOperations mongoOps, Job job) {
-        this.mongoOps = mongoOps;
+    public JobCheck(Job job, JobRepository jobRepository, JobDownRepository jobDownRepository, EmailService emailService) {
         this.job = job;
+        this.jobRepository = jobRepository;
+        this.jobDownRepository = jobDownRepository;
+        this.emailService = emailService;
     }
 
-    // < 100 is undertermined.
-    // 1nn is informal (shouldn't happen on a GET/HEAD)
-    // 2nn is success
-    // 3nn is redirect
-    // 4nn is client error
-    // 5nn is server error
+    /**
+     *
+     * <p> responseCode </p> <p> < 100 is undertermined. 1xx is informal
+     * (shouldn't happen on a GET/HEAD) 2xx is success 3xx is redirect 4xx is
+     * client error 5xx is server error </p>
+     */
     @Override
     public void run() {
 
@@ -58,8 +61,8 @@ class JobCheck implements Runnable {
         String responseCodeStr = getStatus();
         int responseCode = getIntegerVal(responseCodeStr);
         if (responseCode == 200) {
-            if (logger.isDebugEnabled()) {
-                logger.debug(" ping " + job.getUrl() + " successful!");
+            if (logger.isInfoEnabled()) {
+                logger.info(" ping " + job.getUrl() + " successful!");
             }
             // site is up
             handleSiteUp();
@@ -83,11 +86,16 @@ class JobCheck implements Runnable {
 
     }
 
+    /**
+     * Get url connection status
+     *
+     * @return
+     */
     private String getStatus() {
         String responseCode;
         try {
-            if (logger.isDebugEnabled()) {
-                logger.debug(" pinging " + job.getUrl());
+            if (logger.isInfoEnabled()) {
+                logger.info(" pinging " + job.getUrl());
             }
 
             HttpURLConnection connection = (HttpURLConnection) new URL(job.getUrl()).openConnection();
@@ -106,6 +114,12 @@ class JobCheck implements Runnable {
 
     }
 
+    /**
+     * Converts String response-code to number
+     *
+     * @param responseCodeStr
+     * @return
+     */
     private int getIntegerVal(String responseCodeStr) {
         int code = 0;
         try {
@@ -116,6 +130,9 @@ class JobCheck implements Runnable {
         return code;
     }
 
+    /**
+     * logic when site is up
+     */
     private void handleSiteUp() {
         // handle only if site was down earlier
         if (!job.isLastUp()) {
@@ -125,20 +142,30 @@ class JobCheck implements Runnable {
         }
     }
 
-    private void updateJobDownOnSiteUp() {
-        JobDown jobDown = mongoOps.findOne(query(where("job_id").is(job.getId())).addCriteria(where("active").is(Boolean.TRUE)), JobDown.class);
-        jobDown.setDownTill(new Date());
-        jobDown.setActive(Boolean.FALSE);
-        mongoOps.save(jobDown);
-    }
-
+    /**
+     * Site is up after being down, update job objects
+     */
     private void updateJobOnSiteUp() {
         job.setLastUp(true);
         job.setNotified(false);
         job.setUpSince(new Date());
-        mongoOps.save(job);
+        job.setStatus(JobStatus.UP.toString());
+        jobRepository.save(job);
     }
 
+    /**
+     * Site is up after being down, update jobdown object
+     */
+    private void updateJobDownOnSiteUp() {
+        JobDown jobDown = jobDownRepository.findByJobIdAndActive(job.getId(), Boolean.TRUE);
+        jobDown.setDownTill(new Date());
+        jobDown.setActive(Boolean.FALSE);
+        jobDownRepository.save(jobDown);
+    }
+
+    /**
+     * Send email on site up
+     */
     private void sendUpNotify() {
         // send site up notification
         int mins = (int) ((new Date().getTime() / 60000) - (job.getDownSince().getTime() / 60000));
@@ -150,37 +177,48 @@ class JobCheck implements Runnable {
         }
     }
 
+    /**
+     * Handle site down
+     */
     private void handleSiteDown(String responseCodeStr) {
         if (logger.isTraceEnabled()) {
             logger.trace(" ping failed " + job.getUrl() + " status code : " + responseCodeStr);
         }
-        // only send mail for the first time
+        // notify after second attempt
         if (job.isLastUp()) {
             updateJobOnSiteDown();
             updateJobDownOnSiteDown();
-        } else {
-            if (!job.isNotified()) {
-                job.setNotified(true);
-                mongoOps.save(job);
-                // notify after second attempt
-                sendDownNotify(responseCodeStr);
-            }
+        } else if (!job.isNotified()) {
+            sendDownNotify(responseCodeStr);
         }
     }
 
+    /**
+     * Site went down for first time, update job object
+     */
     private void updateJobOnSiteDown() {
         job.setLastUp(false);
         job.setDownSince(new Date());
-        job.setStatus("Down");
-        mongoOps.save(job);
+        job.setStatus(JobStatus.DOWN.toString());
+        job.setNotified(false);
+        jobRepository.save(job);
     }
 
+    /**
+     * Site went down for the first time, update job-down object
+     */
     private void updateJobDownOnSiteDown() {
         JobDown jobDown = new JobDown(job.getId(), Boolean.TRUE, new Date());
-        mongoOps.save(jobDown);
+        jobDownRepository.save(jobDown);
     }
 
+    /**
+     *
+     * @param responseCodeStr
+     */
     private void sendDownNotify(String responseCodeStr) {
+        job.setNotified(true);
+        jobRepository.save(job);
         // send alert email
         StringBuilder body = new StringBuilder();
         body.append(job.getUrl()).append(" <br/> Status : Down! ").append("<br/>Response Code : ").append(responseCodeStr).append("<br/>Detection Time: ").append(job.getDownSince());
@@ -189,6 +227,11 @@ class JobCheck implements Runnable {
         }
     }
 
+    /**
+     * Notify admin
+     *
+     * @param responseCodeStr
+     */
     private void notifyAdmin(String responseCodeStr) {
         // send alert email
         Date time = new Date();

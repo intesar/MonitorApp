@@ -42,7 +42,7 @@ public class MyThreadContextListener implements ServletContextListener {
     public void contextDestroyed(ServletContextEvent contextEvent) {
         context = contextEvent.getServletContext();
         System.out.println("Context Destroyed, shutting EmailService, MonitorService executors!");
-        EmailService.getInstance().shutdown();
+        //EmailService.getInstance().shutdown();
         //MonitorService.getInstance().shutdown();
     }
 }

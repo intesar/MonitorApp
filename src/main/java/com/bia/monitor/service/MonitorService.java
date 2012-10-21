@@ -16,14 +16,12 @@
 
 package com.bia.monitor.service;
 
-import com.bia.monitor.dao.GenericDao;
+import com.bia.monitor.dao.JobRepository;
 import com.bia.monitor.data.Job;
 import java.util.Date;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import static org.springframework.data.mongodb.core.query.Criteria.where;
-import static org.springframework.data.mongodb.core.query.Query.query;
 import org.springframework.stereotype.Component;
 
 /**
@@ -40,15 +38,15 @@ public class MonitorService {
 	protected static final Logger logger = Logger
 			.getLogger(MonitorService.class);
 	
-	@Autowired
-	private GenericDao genericDao;
-	//@Autowired
-	private EmailService emailService = EmailService.getInstance();
+	private JobRepository jobRepository;
+        private EmailService emailService;
 
 	// private static final MonitorService instance = new MonitorService();
-
-	public MonitorService() {
-		logger.info("instantiated!");
+        @Autowired
+	public MonitorService(JobRepository jobRepository, EmailService emailService) {
+            this.jobRepository = jobRepository;
+            this.emailService = emailService;
+            logger.info("instantiated!");
 	}
 
 	/**
@@ -83,13 +81,13 @@ public class MonitorService {
 	 */
 	public boolean remove(String id, String email) {
 		
-		Job job = genericDao.getMongoTemplate().findById(id, Job.class);
+		Job job = jobRepository.findOne(id);
 
 		if (job.getEmail().size() > 1) {
 			job.getEmail().remove(email);
-			genericDao.getMongoTemplate().save(job);
+			jobRepository.save(job);
 		} else {
-			genericDao.getMongoTemplate().remove(job);
+			jobRepository.delete(job);
 			logger.info("id=" + id + ", email=" + email + " is removed!");
 		}
 
@@ -111,7 +109,7 @@ public class MonitorService {
 	 * @return
 	 */
 	public String status(String id) {
-		Job j = genericDao.getMongoTemplate().findById(id, Job.class);
+		Job j = jobRepository.findOne(id);
 		if (j != null) {
 
 			int mins = (int) ((new Date().getTime() / 60000) - (j.getUpSince()
@@ -148,21 +146,20 @@ public class MonitorService {
 		Job job = null;
 
 		try {
-			job = genericDao.getMongoTemplate().findOne(query(where("url").is(url)),
-					Job.class);
+			job = jobRepository.findByUrl(url);
 		} catch (RuntimeException re) {
 		}
 
 		// add
 		if (job != null) {
 			job.getEmail().add(email);
-			genericDao.getMongoTemplate().save(job);
+			jobRepository.save(job);
 		} else {
 			job = new Job();
 			job.setUrl(url);
 			job.getEmail().add(email);
 			job.setUpSince(new Date());
-			genericDao.getMongoTemplate().insert(job);
+			jobRepository.save(job);
 		}
 
 		StringBuilder body = new StringBuilder();

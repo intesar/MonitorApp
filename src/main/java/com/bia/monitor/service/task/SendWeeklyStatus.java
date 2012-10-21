@@ -13,18 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.bia.monitor.service;
+package com.bia.monitor.service.task;
 
-import com.bia.monitor.dao.GenericDao;
+import com.bia.monitor.dao.JobDownRepository;
+import com.bia.monitor.dao.JobRepository;
 import com.bia.monitor.data.Job;
 import com.bia.monitor.data.JobDown;
+import com.bia.monitor.service.EmailService;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import org.apache.log4j.Logger;
-import org.springframework.data.mongodb.core.query.Criteria;
-import static org.springframework.data.mongodb.core.query.Criteria.where;
-import static org.springframework.data.mongodb.core.query.Query.query;
 
 /**
  * Sends weekly summary emails
@@ -48,20 +47,24 @@ public class SendWeeklyStatus implements Runnable {
     final static String PERCENTAGE_SYMBOL = "%";
 
     protected final Logger logger = Logger.getLogger(SendWeeklyStatus.class);
-    private GenericDao genericDao;
+    private EmailService emailService;
+    private JobRepository jobRepository;
+    private JobDownRepository jobDownRepository;
     
-    public SendWeeklyStatus(GenericDao genericDao) {
-        this.genericDao = genericDao;
+    public SendWeeklyStatus(JobRepository jobRepository, JobDownRepository jobDownRepository, EmailService emailService) {
+        this.jobRepository = jobRepository;
+        this.jobDownRepository = jobDownRepository;
+        this.emailService = emailService;
     }
 
     @Override
     public void run() {
         logger.info(" started ... ");
-        List<Job> list;
+        Iterable<Job> list;
         try {
 
-            list = genericDao.getMongoTemplate().findAll(Job.class);
-            logger.info(" processing jobs = " + list.size());
+            list = jobRepository.findAll();
+            logger.info(" processing jobs... ");
             for (Job job : list) {
                 if (job.getEmail() != null && !job.getEmail().isEmpty()) {
 
@@ -87,8 +90,8 @@ public class SendWeeklyStatus implements Runnable {
     private List<JobDown> getJobDowns(Job job) {
         Calendar todayMinus7 = Calendar.getInstance();
         todayMinus7.add(Calendar.DAY_OF_MONTH, MINUS_SEVEN);
-        Criteria creteria = where("job_id").is(job.getId()).andOperator(where("downFrom").gte(todayMinus7.getTime()));
-        List<JobDown> jobDowns = genericDao.getMongoTemplate().find(query(creteria), JobDown.class);
+        //Criteria creteria = where("job_id").is(job.getId()).andOperator(where("downFrom").gte(todayMinus7.getTime()));
+        List<JobDown> jobDowns = jobDownRepository.findByJobIdAndDownFromGreaterThan(job.getId(), todayMinus7.getTime());
         return jobDowns;
     }
 
@@ -139,7 +142,7 @@ public class SendWeeklyStatus implements Runnable {
             body.append(TOTAL_UPTIME).append(upPercentage).append(PERCENTAGE_SYMBOL).append(NEW_LINE);
             body.append(TOTAL_MINS_DOWN).append(downMins).append(NEW_LINE).append(NEW_LINE);
             body.append(THANKS_MSG).append(MONITOR_SITE);
-            EmailService.getInstance().sendEmail(email, REPORT_SUBJECT, body.toString());
+            emailService.sendEmail(email, REPORT_SUBJECT, body.toString());
         }
     }
 }

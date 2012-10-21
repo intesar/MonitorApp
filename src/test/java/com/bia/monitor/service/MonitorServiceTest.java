@@ -38,7 +38,7 @@ public class MonitorServiceTest {
     public static void tearDownClass() throws Exception {
     }
     
-    MonitorService instance = new MonitorService();
+    MonitorService instance = null;//new MonitorService();
     @Before
     public void setUp() {
     }

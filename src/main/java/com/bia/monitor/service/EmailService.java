@@ -30,8 +30,9 @@ import javax.mail.internet.MimeMessage;
 import org.apache.commons.validator.GenericValidator;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
 
-//@Service
+@Service
 public class EmailService {
 
     protected static Logger logger = Logger.getLogger(EmailService.class);
@@ -45,17 +46,17 @@ public class EmailService {
     private String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
     private ScheduledThreadPoolExecutor executor;
 
-    private EmailService() {
+    public EmailService() {
         executor = new ScheduledThreadPoolExecutor(2);
     }
     private Session session;
     // If require enable it
     private InternetAddress[] bcc;
 
-    private static final EmailService instance = new EmailService();
-    public static EmailService getInstance() {
-        return instance;
-    }
+//    private static final EmailService instance = new EmailService();
+//    public static EmailService getInstance() {
+//        return instance;
+//    }
 
     /**
      *

@@ -34,6 +34,15 @@ public class JobDown implements Comparable<JobDown> {
     public JobDown() {
     }
 
+    public JobDown(String id, String job_id, Boolean active, Date downFrom, Date downTill) {
+        this.id = id;
+        this.job_id = job_id;
+        this.active = active;
+        this.downFrom = downFrom;
+        this.downTill = downTill;
+    }
+
+    
     public JobDown(String job_id, Boolean active, Date downFrom) {
         this.job_id = job_id;
         this.active = active;

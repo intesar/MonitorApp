@@ -13,16 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.bia.monitor.service;
+package com.bia.monitor.service.task;
 
-import com.bia.monitor.dao.GenericDao;
+import com.bia.monitor.dao.JobDownRepository;
+import com.bia.monitor.dao.JobRepository;
 import com.bia.monitor.data.Job;
+import com.bia.monitor.service.EmailService;
 import java.util.List;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import org.apache.log4j.Logger;
-import static org.springframework.data.mongodb.core.query.Criteria.where;
-import static org.springframework.data.mongodb.core.query.Query.query;
 
 /**
  *
@@ -31,32 +31,31 @@ import static org.springframework.data.mongodb.core.query.Query.query;
 public class VerifyDailyStatus implements Runnable {
 
     protected final Logger logger_ = Logger.getLogger(VerifyDailyStatus.class);
-    
-    private boolean checkDown;
-    private GenericDao genericDao;
+    private boolean active;
+    //private GenericDao genericDao;
     private ScheduledThreadPoolExecutor executor;
-
-    public VerifyDailyStatus(ScheduledThreadPoolExecutor executor, GenericDao genericDao, boolean checkDown) {
+    private EmailService emailService;
+    private JobRepository jobRepository;
+    private JobDownRepository jobDownRepository;
+    
+    public VerifyDailyStatus(ScheduledThreadPoolExecutor executor, boolean checkDown, JobRepository jobRepository, JobDownRepository jobDownRepository, EmailService emailService) {
         this.executor = executor;
-        this.checkDown = checkDown;
-        this.genericDao = genericDao;
+        this.active = checkDown;
+        this.jobRepository = jobRepository;
+        this.jobDownRepository = jobDownRepository;
+        this.emailService = emailService;
     }
 
     @Override
     public void run() {
         List<Job> list;
         try {
-            if (checkDown) {
-                list = genericDao.getMongoTemplate().find(query(where("lastUp").is(Boolean.FALSE)), Job.class);
-                logger_.info("checking " + (list != null ? list.size() : 0) + " down sites!");
-                //list = mongoOps.findAll(Job.class);
-            } else {
-                list = genericDao.getMongoTemplate().find(query(where("lastUp").is(Boolean.TRUE)), Job.class);
-                logger_.info("checking " + (list != null ? list.size() : 0) + " up sites!");
-            }
+            list = jobRepository.findByLastUp(active);
+            logger_.info("checking " + (list != null ? list.size() : 0) + " sites active=" + active);
+
             for (Job job : list) {
                 if (job.getEmail() != null && !job.getEmail().isEmpty()) {
-                    Runnable job_ = new JobCheck(genericDao.getMongoTemplate(), job);
+                    Runnable job_ = new JobCheck(job, jobRepository, jobDownRepository, emailService);
                     executor.schedule(job_, 10, TimeUnit.MILLISECONDS);
                 }
             }
