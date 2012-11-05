@@ -15,22 +15,17 @@
  */
 package com.bia.monitor.service.task;
 
-import com.bia.monitor.data.Job;
-import org.springframework.scheduling.annotation.Async;
-
 /**
  *
  * @author Intesar Mohammed
  */
-public interface JobCheck {
-
-    /**
-     *
-     * <p> responseCode </p> <p> < 100 is undertermined. 1xx is informal
-     * (shouldn't happen on a GET/HEAD) 2xx is success 3xx is redirect 4xx is
-     * client error 5xx is server error </p>
-     */
-    @Async
-    void run(Job job);
-    
+public interface ScheduleConstants {
+    // SUNDAY 4 PM
+    String WEEKLY_SCHEDULE = "0 15 18 * * SUN";
+    // EVERY 15 MINS
+    int DAILY_UPSITE_SCHEDULE = 15*60*1000;
+    // EVERY 2 MIN
+    int DAILY_DOWNSITE_SCHEDULE = 2*60*1000;
+    // EVERY DAY 4 PM
+    String DAILY_ADMIN_SCHEDULE = "0 15 18 * * ?";
 }

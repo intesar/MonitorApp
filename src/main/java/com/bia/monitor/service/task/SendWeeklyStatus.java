@@ -20,16 +20,22 @@ import com.bia.monitor.dao.JobRepository;
 import com.bia.monitor.data.Job;
 import com.bia.monitor.data.JobDown;
 import com.bia.monitor.service.EmailService;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 /**
  * Sends weekly summary emails
  * @author Intesar Mohammed
  */
-public class SendWeeklyStatus implements Runnable {
+@Component
+public class SendWeeklyStatus {
     
     final static long TOTAL_WEEK_MINS = 10080;
     final static long HUNDERED = 100;
@@ -42,22 +48,25 @@ public class SendWeeklyStatus implements Runnable {
     final static String SITE = "Site : ";
     final static String TOTAL_UPTIME = "Uptime : ";
     final static String TOTAL_MINS_DOWN = "Total Mins down : ";
+    final static String DOWN_DETAILS = "Down Details";
     final static String THANKS_MSG = "Thanks for using ";
     final static String REPORT_SUBJECT = "Your site weekly uptime report";
     final static String PERCENTAGE_SYMBOL = "%";
+    final static String DATE_FORMAT = "EEE, MMM d, hh:mm aaa";
 
-    protected final Logger logger = Logger.getLogger(SendWeeklyStatus.class);
+    protected final Logger logger = Logger.getLogger(getClass());
     private EmailService emailService;
     private JobRepository jobRepository;
     private JobDownRepository jobDownRepository;
     
+    @Autowired
     public SendWeeklyStatus(JobRepository jobRepository, JobDownRepository jobDownRepository, EmailService emailService) {
         this.jobRepository = jobRepository;
         this.jobDownRepository = jobDownRepository;
         this.emailService = emailService;
     }
 
-    @Override
+    @Scheduled(cron=ScheduleConstants.WEEKLY_SCHEDULE)
     public void run() {
         logger.info(" started ... ");
         Iterable<Job> list;
@@ -73,8 +82,10 @@ public class SendWeeklyStatus implements Runnable {
                     long downMins = getDownMins(jobDowns);
 
                     double upPercentage = getUpPercentage(downMins);
-
-                    notifyUser(job, upPercentage, downMins);
+                    
+                    String details = getDownRecords(jobDowns);
+                    
+                    notifyUser(job, upPercentage, downMins, details);
                 }
             }
         } catch (Exception e) {
@@ -115,6 +126,28 @@ public class SendWeeklyStatus implements Runnable {
         return downMins;
     }
 
+    private String getDownRecords(List<JobDown> jobDowns) {
+        StringBuilder sb = new StringBuilder();
+        if (jobDowns != null && !jobDowns.isEmpty()) {
+            for (JobDown jobDown : jobDowns) {
+                Date till = jobDown.getDownTill();
+                if (till == null ) {
+                    till = new Date();
+                }
+                
+                long mins = (till.getTime() - jobDown.getDownFrom().getTime()) / (MS_MINS);
+                
+                DateFormat df = new SimpleDateFormat(DATE_FORMAT);
+                String from = df.format(jobDown.getDownFrom());
+                String tillStr = df.format(till);
+                
+                sb.append(from).append(" - ").append(tillStr).append(" -- ").append(mins).append(" Mins").append(NEW_LINE);
+            }
+        }
+        return sb.toString();
+    }
+
+    
     /**
      * calculates percentage down time
      * @param downMins
@@ -134,13 +167,19 @@ public class SendWeeklyStatus implements Runnable {
      * @param upPercentage
      * @param downMins 
      */
-    private void notifyUser(Job job, double upPercentage, long downMins) {
+    private void notifyUser(Job job, double upPercentage, long downMins, String downDetails) {
         for (String email : job.getEmail()) {
             StringBuilder body = new StringBuilder();
             body.append(REPORT_TITLE).append(NEW_LINE).append(NEW_LINE);
             body.append(SITE).append(job.getUrl()).append(NEW_LINE);
             body.append(TOTAL_UPTIME).append(upPercentage).append(PERCENTAGE_SYMBOL).append(NEW_LINE);
             body.append(TOTAL_MINS_DOWN).append(downMins).append(NEW_LINE).append(NEW_LINE);
+            
+            body.append(DOWN_DETAILS).append(NEW_LINE);
+            body.append("------").append(NEW_LINE);
+            body.append(downDetails).append(NEW_LINE).append(NEW_LINE);
+            body.append("------").append(NEW_LINE);
+            
             body.append(THANKS_MSG).append(MONITOR_SITE);
             emailService.sendEmail(email, REPORT_SUBJECT, body.toString());
         }

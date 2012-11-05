@@ -78,8 +78,8 @@ public class JobCheckTest {
 
         EmailService emailService = mock(EmailService.class);
         //when(emailService.sendEmail)
-        JobCheck instance = new JobCheck(job, jobRepository, jobDownRepository, emailService);
-        instance.run();
+        JobCheckImpl instance = new JobCheckImpl(jobRepository, jobDownRepository, emailService);
+        instance.run(job);
 
         Assert.assertEquals(job.getId(), "1");
         Assert.assertEquals(job.getUrl(), "http://www.zytoon.me");
@@ -125,8 +125,8 @@ public class JobCheckTest {
 
         EmailService emailService = mock(EmailService.class);
         //when(emailService.sendEmail)
-        JobCheck instance = new JobCheck(job, jobRepository, jobDownRepository, emailService);
-        instance.run();
+        JobCheckImpl instance = new JobCheckImpl(jobRepository, jobDownRepository, emailService);
+        instance.run(job);
 
         Assert.assertEquals(job.getId(), "1");
         Assert.assertEquals(job.getUrl(), url);
@@ -172,8 +172,8 @@ public class JobCheckTest {
 
         EmailService emailService = mock(EmailService.class);
         //when(emailService.sendEmail)
-        JobCheck instance = new JobCheck(job, jobRepository, jobDownRepository, emailService);
-        instance.run();
+        JobCheckImpl instance = new JobCheckImpl(jobRepository, jobDownRepository, emailService);
+        instance.run(job);
 
         Assert.assertEquals(job.getId(), "1");
         Assert.assertEquals(job.getUrl(), url);
@@ -219,8 +219,8 @@ public class JobCheckTest {
 
         EmailService emailService = mock(EmailService.class);
         //when(emailService.sendEmail)
-        JobCheck instance = new JobCheck(job, jobRepository, jobDownRepository, emailService);
-        instance.run();
+        JobCheckImpl instance = new JobCheckImpl(jobRepository, jobDownRepository, emailService);
+        instance.run(job);
 
         Assert.assertEquals(job.getId(), "1");
         Assert.assertEquals(job.getUrl(), url);
@@ -255,8 +255,8 @@ public class JobCheckTest {
 
         EmailService emailService = mock(EmailService.class);
         //when(emailService.sendEmail)
-        JobCheck instance = new JobCheck(job, jobRepository, jobDownRepository, emailService);
-        instance.run();
+        JobCheckImpl instance = new JobCheckImpl(jobRepository, jobDownRepository, emailService);
+        instance.run(job);
 
         Assert.assertEquals(job.getId(), "1");
         Assert.assertEquals(job.getUrl(), "http://www.zytoon.me");
@@ -304,8 +304,8 @@ public class JobCheckTest {
 
         EmailService emailService = mock(EmailService.class);
         //when(emailService.sendEmail)
-        JobCheck instance = new JobCheck(job, jobRepository, jobDownRepository, emailService);
-        instance.run();
+        JobCheckImpl instance = new JobCheckImpl(jobRepository, jobDownRepository, emailService);
+        instance.run(job);
         
         verify(jobDownRepository).save(any(JobDown.class));
         

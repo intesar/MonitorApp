@@ -9,25 +9,31 @@ import com.bia.monitor.data.Job;
 import com.bia.monitor.service.EmailService;
 import java.util.List;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author mdshannan
  */
-public class AdminNotify implements Runnable {
+@Component
+public class AdminNotify {
     
-    protected static Logger logger = Logger.getLogger(AdminNotify.class);
+    protected Logger logger = Logger.getLogger(getClass());
     private EmailService emailService;
     private JobRepository jobRepository;
     static final String P_START = "<p>";
     static final String P_END = "</p>";
     
+    @Autowired
     public AdminNotify(JobRepository jobRepository, EmailService emailService) {
         this.jobRepository = jobRepository;
         this.emailService = emailService;
     }
     
-    @Override
+    // 10 pm everyday
+    @Scheduled(cron=ScheduleConstants.DAILY_ADMIN_SCHEDULE)
     public void run() {
         logger.info("Started!");
         List<Job> list = jobRepository.findByLastUp(Boolean.FALSE);

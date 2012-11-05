@@ -17,11 +17,9 @@ package com.bia.monitor.service;
 
 /**
  *
- * @author intesar mohammed mdshannan@gmail.com
+ * @author Intesar Mohammed mdshannan@gmail.com
  */
 import java.util.Properties;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 import javax.annotation.PreDestroy;
 import javax.mail.*;
 import javax.mail.internet.AddressException;
@@ -30,6 +28,7 @@ import javax.mail.internet.MimeMessage;
 import org.apache.commons.validator.GenericValidator;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.apache.log4j.Logger;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -44,10 +43,8 @@ public class EmailService {
     private String SMTP_HOST_NAME = "smtp.gmail.com";
     private String SMTP_PORT = "465";
     private String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
-    private ScheduledThreadPoolExecutor executor;
-
+    
     public EmailService() {
-        executor = new ScheduledThreadPoolExecutor(2);
     }
     private Session session;
     // If require enable it
@@ -65,16 +62,14 @@ public class EmailService {
      * @param body
      * @return true email send, false invalid input
      */
+    @Async
     public boolean sendEmail(String toAddress, String subject, String body) {
         if (!isValidEmail(toAddress) || !isValidSubject(subject)) {
             return false;
         }
 
         String[] to = {toAddress};
-        // Aysnc send email
-        Runnable emailServiceAsync = new EmailServiceAsync(to, subject, body);
-        this.executor.schedule(emailServiceAsync, 1, TimeUnit.MILLISECONDS);
-
+        sendSSMessage(to, subject, body);
         return true;
     }
 
@@ -85,15 +80,13 @@ public class EmailService {
      * @param body
      * @return true email send, false invalid input
      */
+    @Async
     public boolean sendEmail(String[] toAddresses, String subject, String body) {
         if (!isValidEmail(toAddresses) || !isValidSubject(subject)) {
             return false;
         }
 
-        // Aysnc send email
-        Runnable emailServiceAsync = new EmailServiceAsync(toAddresses, subject, body);
-        this.executor.schedule(emailServiceAsync, 1, TimeUnit.MILLISECONDS);
-
+        sendSSMessage(toAddresses, subject, body);
         return true;
 
     }
@@ -122,30 +115,6 @@ public class EmailService {
      */
     private boolean isValidSubject(String subject) {
         return !GenericValidator.isBlankOrNull(subject);
-    }
-
-    /*
-     *
-     * Aysnc send emails using command pattern
-     *
-     */
-    private class EmailServiceAsync implements Runnable {
-
-        String recipients[];
-        String subject;
-        String message;
-
-        EmailServiceAsync(String recipients[], String subject,
-                String message) {
-            this.recipients = recipients;
-            this.subject = subject;
-            this.message = message;
-        }
-
-        @Override
-        public void run() {
-            EmailService.this.sendSSMessage(recipients, subject, message);
-        }
     }
 
     /**
@@ -232,7 +201,7 @@ public class EmailService {
      * @throws MessagingException
      */
     private void send(InternetAddress[] addressTo, String subject, String message) throws AddressException, MessagingException {
-        logger.info("sending email..");
+        logger.info("sending email.. " + addressTo);
         Message msg = new MimeMessage(createSession());
         InternetAddress addressFrom = new InternetAddress(USERNAME);
         msg.setFrom(addressFrom);
@@ -258,7 +227,6 @@ public class EmailService {
     protected void finalize() throws Throwable {
         try {
             // releasing executor
-            this.executor.shutdown();
             System.out.println ("EmailService exector released!");
         } finally {
             super.finalize();
@@ -272,6 +240,5 @@ public class EmailService {
      */
     @PreDestroy
     public void shutdown() {
-        this.executor.shutdown();
     }
 }

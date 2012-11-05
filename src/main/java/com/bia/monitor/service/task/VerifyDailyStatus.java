@@ -15,39 +15,48 @@
  */
 package com.bia.monitor.service.task;
 
-import com.bia.monitor.dao.JobDownRepository;
 import com.bia.monitor.dao.JobRepository;
 import com.bia.monitor.data.Job;
-import com.bia.monitor.service.EmailService;
 import java.util.List;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author mdshannan
  */
-public class VerifyDailyStatus implements Runnable {
+@Component
+public class VerifyDailyStatus {
 
-    protected final Logger logger_ = Logger.getLogger(VerifyDailyStatus.class);
-    private boolean active;
-    //private GenericDao genericDao;
-    private ScheduledThreadPoolExecutor executor;
-    private EmailService emailService;
+    protected final Logger logger_ = Logger.getLogger(getClass());
     private JobRepository jobRepository;
-    private JobDownRepository jobDownRepository;
+    private JobCheck jobCheck;
     
-    public VerifyDailyStatus(ScheduledThreadPoolExecutor executor, boolean checkDown, JobRepository jobRepository, JobDownRepository jobDownRepository, EmailService emailService) {
-        this.executor = executor;
-        this.active = checkDown;
+    public VerifyDailyStatus(){}
+    
+    @Autowired
+    public VerifyDailyStatus(JobRepository jobRepository, JobCheck jobCheck) {
         this.jobRepository = jobRepository;
-        this.jobDownRepository = jobDownRepository;
-        this.emailService = emailService;
+        this.jobCheck = jobCheck;
     }
 
-    @Override
-    public void run() {
+    // 15 mins
+    @Scheduled(fixedRate=ScheduleConstants.DAILY_UPSITE_SCHEDULE)
+    public void verifyUpSites() {
+        boolean active = true;
+        verify(active);    
+    }
+    
+    // 1 min
+    @Scheduled(fixedRate=ScheduleConstants.DAILY_DOWNSITE_SCHEDULE)
+    public void verifyDownSites() {
+        boolean active = false;
+        verify(active);    
+    }
+
+    private void verify(boolean active) {
         List<Job> list;
         try {
             list = jobRepository.findByLastUp(active);
@@ -55,8 +64,7 @@ public class VerifyDailyStatus implements Runnable {
 
             for (Job job : list) {
                 if (job.getEmail() != null && !job.getEmail().isEmpty()) {
-                    Runnable job_ = new JobCheck(job, jobRepository, jobDownRepository, emailService);
-                    executor.schedule(job_, 10, TimeUnit.MILLISECONDS);
+                    jobCheck.run(job);
                 }
             }
         } catch (Exception e) {
