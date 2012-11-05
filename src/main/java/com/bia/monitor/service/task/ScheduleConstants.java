@@ -21,11 +21,11 @@ package com.bia.monitor.service.task;
  */
 public interface ScheduleConstants {
     // SUNDAY 4 PM
-    String WEEKLY_SCHEDULE = "0 15 18 * * SUN";
+    String WEEKLY_SCHEDULE = "0 30 18 * * SUN";
     // EVERY 15 MINS
     int DAILY_UPSITE_SCHEDULE = 15*60*1000;
     // EVERY 2 MIN
     int DAILY_DOWNSITE_SCHEDULE = 2*60*1000;
     // EVERY DAY 4 PM
-    String DAILY_ADMIN_SCHEDULE = "0 15 18 * * ?";
+    String DAILY_ADMIN_SCHEDULE = "0 30 18 * * ?";
 }
